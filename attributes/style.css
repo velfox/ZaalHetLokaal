@@ -30,7 +30,7 @@ header{
     transition: all 1s;
     -webkit-transition: all 1s; /* Safari 3.1 to 6.0 */
     padding-top: 100px;
-    border-bottom: 10px solid #FEF7DF;
+    border-bottom: 10px solid #736357;
 }
 .small{
     height: 150px;
@@ -158,10 +158,12 @@ header{
     text-decoration: none;
     background-color: #588C73;
     border-radius: 10px 10px 0px 0px;
+    transition: all 0.5s;
+    -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
   }
   
   li a:hover:not(.active) {
-    background-color: #ddd;
+    background-color: rgb(62, 117, 91);
   }
   
   li a.active {
@@ -348,6 +350,7 @@ header{
 }
 
 .main-button{
+    outline:0;
     color: #fff; 
     font-family: 'krijt2';
     background-color: #588C73;
@@ -366,6 +369,7 @@ header{
 }
 
 .second-button{
+    outline:0;
     color: #fff; 
     font-family: 'krijt2';
     background-color: #588C73;
@@ -419,16 +423,41 @@ header{
     justify-content: space-evenly;
     background-color: #C7B299;
     margin-bottom: 10px;
+    font-family: Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
 }
 
-.information-box-title{
+.form-box{
     max-width: 1105px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    background-color: #C7B299;
+    margin-bottom: 10px;
+    font-family: Georgia, Palatino, Palatino Linotype, Times, Times New Roman, serif;
+}
+
+.informatie-blok-container{
+    display: none;
+    height: fit-content;
+    transition: all 1s;
+    -webkit-transition: all 1s; /* Safari 3.1 to 6.0 */
+}
+
+.activebox{
+    height: 0px;
+    display: unset!important;
+}
+
+.information-box-title{
+    max-width: 1105px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
     background-color: #716358;
-    margin: 0px 0px;
+    color: #fff;
+    margin-top: 10px;
+    padding: 10px;
 }
 
 .information-menu{
@@ -446,6 +475,68 @@ header{
     justify-content: space-evenly;
     background-color: #716358;
     margin: 10px 0px;
+}
+
+.information-title{
+    font-size: 20px;
+}
+
+.information-lead{
+    padding: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'krijt2';
+    background-color: #716358;
+}
+
+.information-prijs{
+    padding: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'krijt2';
+    width: fit-content;
+    background-color: #716358;
+    margin-top: 5px;
+}
+.information-som{
+    padding: 4px;
+    color: black;
+    font-size: 17px;
+}
+
+.information-text{
+    padding: 10px;
+    color: black;
+    font-size: 17px;
+}
+
+.active-button{
+    background-color: #998675;
+}
+
+.prijs-tabel{
+    display: flex;
+    max-width: 800px;
+}
+
+.information-naam{
+    min-width: 220px;
+    width: fit-content;
+    padding: 4px;
+    margin: 2px;
+    background-color: rgb(165, 148, 128)
+}
+
+.information-prijs-tabel{
+    min-width: 30px;
+    background-color: #716358;
+    padding: 4px;
+    margin: 2px;
+    color: #fff;
+}
+
+.exw{
+    width: fit-content;
 }
 /* end more information layout */
 
@@ -474,6 +565,8 @@ footer{
 .title{
     font-size: 18px;
     margin-bottom: 5px;
+    border-bottom: 4px solid #FEF7DF;
+    border-image: url(/attributes/img/borders/chalk-border-1_1.png) 10 stretch;
 }
 
 .krijtjes{
@@ -496,4 +589,12 @@ footer{
     .footerblok{
         padding: 20px 0px 20px 20px;
     }
+}
+
+#form-part-1{
+
+}
+
+#form-part-2{
+
 }

@@ -14,7 +14,7 @@ include_once ('./attributes/templates/header.php');
         <p class="som"> - het houden van vergaderingen en bijeenkomsten </p>
         <p class="som"> - het geven van presentaties en voorlichtingen </p>
         <p class="normal"> huren van tap, statafels, servies e.a Wij beschikken over een prima keueken en stellen ons zeer flexibel op met betrekking tot het organiseren van verschillende activiteiten</p>
-        <p class="normal"> U kun hier onze <button class="main-button"> mogelijkheden </button> bekijken </p>
+        <p class="normal"> U kun hier onze <a href="mogelijkheden.php"><button class="main-button"> mogelijkheden </button></a>  bekijken </p>
     </section>
 </section>
 
