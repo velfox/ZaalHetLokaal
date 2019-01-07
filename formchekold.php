@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
    
   if (empty($_POST["tracefield"])) {
     $nameErr = "datum is required";
-    header('Location: reserveren.php?option='. $tracefield);
+    header('Location: reserveren.php?option='. $tracefield.'?error='.$nameErr );
   } else {
     $tracefield = test_input($_POST["tracefield"]);
     if (empty($_POST["datum"])) {
@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 if ( $tracefield == "buffet"){
 include_once('./attributes/templates/dbcon.php');
-  $sql = "INSERT INTO reservering (dag, personen, timtak, achternaam, dagdeelo, dagdeela, dagdeelm)
+  $sql = "INSERT INTO reservering (dag, personen, voornaam, achternaam, dagdeelo, dagdeela, dagdeelm)
   VALUES ('$datum', $personen, '$naam', '$achternaam', $ochtend, $avond, $middag);";
   if ($db->query($sql) === TRUE) {
       echo "New record created successfully";
