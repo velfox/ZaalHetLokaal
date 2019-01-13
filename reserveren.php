@@ -7,6 +7,29 @@
 <section class="information">
     <section class="information-conainer">
 
+    <?php if (isset($success)) { ?>
+        <section class="information-content">
+            <!-- start informatie conteiner -->
+            <section id="box1" class="activebox informatie-blok-container">
+                <section class="information-box-title">
+                    <p class="information-title" > verzonden! </p>
+                </section>
+                <section class="information-box">
+                    <p class="information-lead">Uw reservering is verzonden! binnen 2 werkdagen krijgt u van ons bericht </p>
+                </section>
+            <!-- end informatie container -->
+            </section>
+            <section id="box1" class="activebox informatie-blok-container">
+                <section class="information-box-title">
+                    <p class="information-title" > overzicht </p>
+                </section>
+                <section class="information-box">
+                <?php include_once('./ophalenenkel.php'); ?> 
+                </section>
+            <!-- end informatie container -->
+            </section>
+        </section>
+    <?php } else { ?>
         <section class="information-content">
             <!-- start informatie conteiner -->
             <section id="box1" class="activebox informatie-blok-container">
@@ -16,15 +39,13 @@
                 <section class="information-box">
                     <p class="information-lead"> U kunt hieronder de gegevens invullen om te reserveren, Hierna wordt deze reservering verwerkt. binnen 2 werkdagen krijgt u van ons bericht </p>
                     <?php if (isset($errors) && !empty($errors)) { ?>
-    <ul class="errors">
-        <?php for ($i = 0; $i < count($errors); $i++) { ?>
-            <li><?= $errors[$i]; ?></li>
-        <?php } ?>
-    </ul>
-<?php } ?>
-<?php if (isset($success)) { ?>
-    <p class="success">Je nieuwe album is toegevoegd aan de database</p>
-<?php } ?>
+                    <ul class="errors">
+                        <?php for ($i = 0; $i < count($errors); $i++) { ?>
+                            <li><?= $errors[$i]; ?></li>
+                        <?php } ?>
+                    </ul>
+                <?php } ?>
+
                 </section>
             <!-- end informatie container -->
         </section>
@@ -86,8 +107,8 @@
                             </div>
                             <div class="data-field">
                                 <label> telefoonnummer </label>    
-                                <input type="text" name="telefoonnummer" value="0348-402391">
-                                <span class=""><?= isset($errors['telefoonnummer']) ? $errors['telefoonnummer'] : '' ?></span>
+                                <input type="text" name="tel" value="0348-402391">
+                                <span class=""><?= isset($errors['tel']) ? $errors['tel'] : '' ?></span>
                             </div>
                                 <input type="hidden" id="tracefield" name="tracefield" value="<?= $option; ?>">
                             <div class="data-field">    
@@ -98,6 +119,7 @@
                 </section>
         </section>
     </section>
+    <?php } ?>
         <section class="information-menu">
             <section class="information-reserveren menu-box">
                 <p class="information-title"> vragen? </p>

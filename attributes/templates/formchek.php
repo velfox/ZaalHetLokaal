@@ -33,6 +33,8 @@ if (isset($_POST['submit'])) {
     $personen = mysqli_escape_string($db, $_POST['personen']);
     $naam = mysqli_escape_string($db, $_POST['naam']);
     $achternaam = mysqli_escape_string($db, $_POST['achternaam']);
+    $email = mysqli_escape_string($db, $_POST['email']);
+    $tel =  mysqli_escape_string($db, $_POST['tel']);
     // soort arragement
     $tracefield = mysqli_escape_string($db, $_POST['tracefield']);
     $option =  $tracefield;
@@ -64,7 +66,7 @@ if (isset($_POST['submit'])) {
             $result = TRUE;
         } 
 
-        //import de aanvullingen
+        //import de aanvullingen bbq
         if($option == "bbq"){
             if($pakket == "club barbecue"){
                 $pakketid = 1;
@@ -93,7 +95,10 @@ if (isset($_POST['submit'])) {
             $achternaam = '';
             $naam = '';
             $dagdeel = '';
+            $tel = '';
+            $email = '';
             $success = true;
+            $successid = $last_id2;
         } else {
             $errors[] = 'Something went wrong in your database query: ' . mysqli_error($db);
         }

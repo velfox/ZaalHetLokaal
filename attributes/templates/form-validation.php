@@ -13,6 +13,12 @@ if ($naam == "") {
 if ($achternaam == "") {
     $errors[] = 'achternaam mag niet leeg zijn.';
 }
+if ($email == "") {
+    $errors[] = 'email mag niet leeg zijn.';
+}
+if ($tel == "") {
+    $errors[] = 'telefoonnummer mag niet leeg zijn.';
+}
 if ( $dagdeel < 1){
     $errors[] = 'kies minstens een dagdeel' . $dagdeel;
 }
