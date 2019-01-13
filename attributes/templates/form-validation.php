@@ -13,22 +13,6 @@ if ($naam == "") {
 if ($achternaam == "") {
     $errors[] = 'achternaam mag niet leeg zijn.';
 }
-if (isset($_POST['ochtend'])){
-    if ($ochtend == "") {
-        $errors[] = 'ochtend mag niet leeg zijn.';
-    }
-}
-if (isset($_POST['avond'])){
-    if ($avond == "") {
-        $errors[] = 'avond mag niet leeg zijn.';
-    }
-}
-    if (isset($_POST['middag'])){
-    if ($middag == "") {
-        $errors[] = 'middag mag niet leeg zijn.';
-    }
-}
-echo $dagdeel;
 if ( $dagdeel < 1){
     $errors[] = 'kies minstens een dagdeel' . $dagdeel;
 }

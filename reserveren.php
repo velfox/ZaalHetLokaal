@@ -14,7 +14,7 @@
                     <p class="information-title" > Reserveren <?= $option; ?> </p>
                 </section>
                 <section class="information-box">
-                    <p class="information-lead"> U kunt hieronder de gegevens invullen om te reserveren, Hierna wordt deze reservering verwerkt en binnen 2 werkdagen krijgt u van ons bericht </p>
+                    <p class="information-lead"> U kunt hieronder de gegevens invullen om te reserveren, Hierna wordt deze reservering verwerkt. binnen 2 werkdagen krijgt u van ons bericht </p>
                     <?php if (isset($errors) && !empty($errors)) { ?>
     <ul class="errors">
         <?php for ($i = 0; $i < count($errors); $i++) { ?>
@@ -54,18 +54,41 @@
                                 <span class=""><?= isset($errors['personen']) ? $errors['personen'] : '' ?></span>
                             </div>
                         </section>
-                        <section id="form-part-2">
-                                <!-- part 2 -->
-                                <div class="data-field">
+                       
+                                <!-- part 2 aanvullingen-->
+                            <?php if( $option == "bbq"){ ?>
+                                <section id="form-part-2">
+                                    <div class="data-field">
+                                        <label> gewenste arragament</label>                        <br>
+                                        <input type="radio" name="arragamentPakket" value="club barbecue" checked> club barbecue <br>
+                                        <input type="radio" name="arragamentPakket" value="party barbecue"> party barbecue <br>
+                                        <input type="radio" name="arragamentPakket" value="club barbecue luxe"> club barbecue luxe <br>
+                                        <span class=""><?= isset($errors['dagdeel']) ? $errors['dagdeel'] : '' ?></span>
+                                    </div>
+                                </section>
+                            <?php } ?>
+                        <section id="form-part-3">
+                                <!-- part 3 -->
+                            <div class="data-field">
                                 <label> Voornaam </label>    
                                 <input type="text" name="naam" value="Mickey">
                                 <span class=""><?= isset($errors['naam']) ? $errors['naam'] : '' ?></span>
-                                </div>
+                            </div>
                             <div class="data-field">
                                 <label> achternaam </label>    
                                 <input type="text" name="achternaam" value="Mouse">
                                 <span class=""><?= isset($errors['achternaam']) ? $errors['achternaam'] : '' ?></span>
-                                <br>
+                            </div>
+                            <div class="data-field">
+                                <label> email </label>    
+                                <input type="text" name="email" value="Mouse@disney.com">
+                                <span class=""><?= isset($errors['email']) ? $errors['email'] : '' ?></span>
+                            </div>
+                            <div class="data-field">
+                                <label> telefoonnummer </label>    
+                                <input type="text" name="telefoonnummer" value="0348-402391">
+                                <span class=""><?= isset($errors['telefoonnummer']) ? $errors['telefoonnummer'] : '' ?></span>
+                            </div>
                                 <input type="hidden" id="tracefield" name="tracefield" value="<?= $option; ?>">
                             <div class="data-field">    
                                 <input type="submit" name="submit" value="Save"/>

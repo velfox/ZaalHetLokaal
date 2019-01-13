@@ -63,7 +63,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> barbecue <h3></div>
                 <div><a href="bbq.php"><button class="main-button margin-button"> meer informatie </button></a> </div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=bbq"><button class="second-button margin-button"> reserveren </button> </a></div>
             </section>
         </section>
                 <section class="option">
