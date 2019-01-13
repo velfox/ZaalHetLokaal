@@ -598,3 +598,8 @@ footer{
 #form-part-2{
 
 }
+
+.errors{
+    color: red;
+    padding: 10px;
+}

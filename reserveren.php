@@ -1,7 +1,6 @@
 
 <?php include_once('./attributes/templates/head.php'); ?> 
 <?php include_once('./attributes/templates/header-small.php'); ?> 
-
 <?php include_once('./attributes/templates/formchek.php'); ?> 
 
 
@@ -16,6 +15,16 @@
                 </section>
                 <section class="information-box">
                     <p class="information-lead"> U kunt hieronder de gegevens invullen om te reserveren, Hierna wordt deze reservering verwerkt en binnen 2 werkdagen krijgt u van ons bericht </p>
+                    <?php if (isset($errors) && !empty($errors)) { ?>
+    <ul class="errors">
+        <?php for ($i = 0; $i < count($errors); $i++) { ?>
+            <li><?= $errors[$i]; ?></li>
+        <?php } ?>
+    </ul>
+<?php } ?>
+<?php if (isset($success)) { ?>
+    <p class="success">Je nieuwe album is toegevoegd aan de database</p>
+<?php } ?>
                 </section>
             <!-- end informatie container -->
         </section>
@@ -30,7 +39,7 @@
                             <div class="data-field">
                                 <label> Datum </label><br>
                                 <input type="date" name="datum">
-                                <span class=""><?= isset($errors['datum']) ? $errors['datum'] : '' ?></span>
+                                <span class="error"><?= isset($errors['datum']) ? $errors['datum'] : '' ?></span>
                             </div>
                             <div class="data-field">
                                 <label> dagdelen</label>                        <br>
