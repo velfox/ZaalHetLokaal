@@ -90,20 +90,6 @@ if (isset($_POST['submit'])) {
                 }
             }
 
-            // $aanvullingenqeury = "INSERT INTO aanvulling_reservering 
-            // (aanvulling_id, reservering_id) VALUES";
-            // //aanvullingen
-            // if (isset($_POST['arragamentPakketAanvulling'])) {
-            //     echo('ok?');
-            //     foreach ($_POST['arragamentPakketAanvulling'] as $aanvulling) {
-            //         $aanvulling = mysqli_real_escape_string($db, $aanvulling);
-            //         echo($aanvulling);
-            //         $aanvullingenqeury .= "($aanvulling, " .$last_id2. "),";
-            //     }
-            //     $aanvullingenqeury = substr_replace($aanvullingenqeury, "", -1);
-            // }
-
-
         if ($result) {
             //Set success message & empty all variables for new form
             $datum = '';

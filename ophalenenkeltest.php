@@ -1,7 +1,7 @@
 <?php
 require_once "./attributes/templates/dbcon.php";
 
-$sql = "SELECT * FROM reservering WHERE id=66";
+$sql = "SELECT * FROM reservering WHERE id=161";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {

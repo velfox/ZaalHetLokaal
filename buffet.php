@@ -5,6 +5,9 @@ include_once('./attributes/templates/head.php');
 <?php 
 include_once('./attributes/templates/header-small.php');
 ?> 
+<?php
+    require_once "./attributes/templates/dbcon.php";             
+?>
 
 <section class="information">
     <section class="information-conainer">
@@ -49,6 +52,89 @@ include_once('./attributes/templates/header-small.php');
                 </section>
             </section>
             <!-- end informatie container -->
+            <section id="box2" class="activebox informatie-blok-container">
+                <section class="information-box-title">
+                    <p class="information-title" > vis   </p>
+                </section>
+                <section class="information-box">
+
+                <?php
+                    $sql = "SELECT * FROM aanvulling WHERE groep='vis'";
+                    $visqr = $db->query($sql);
+
+                    if ($visqr->num_rows > 0) {
+                        // output data of each row
+                        while($row = $visqr->fetch_assoc()) {
+                            $aanvulling = $row["aanvulling"];
+                            $prijs = $row["prijs"];
+
+                            ?>
+                            <section class="prijs-tabel">
+                                <p class="information-naam"> <?= $aanvulling ?> </p> <p class="information-prijs-tabel">  <?= $prijs ?>  </p>
+                            </section>
+                            <?php
+
+                        }
+                    } else {
+                        echo "geen vis aanvullingen gevonden";
+                    }
+                ?>
+                </section>
+                <section class="information-box-title">
+                    <p class="information-title" > vlees   </p>
+                </section>
+                <section class="information-box">
+
+                <?php 
+                    $sql = "SELECT * FROM aanvulling WHERE groep='vlees'";
+                    $visqr = $db->query($sql);
+
+                    if ($visqr->num_rows > 0) {
+                        // output data of each row
+                        while($row = $visqr->fetch_assoc()) {
+                            $aanvulling = $row["aanvulling"];
+                            $prijs = $row["prijs"];
+
+                            ?>
+                            <section class="prijs-tabel">
+                                <p class="information-naam"> <?= $aanvulling ?> </p> <p class="information-prijs-tabel">  <?= $prijs ?>  </p>
+                            </section>
+                            <?php
+
+                        }
+                    } else {
+                        echo "geen vlees aanvullingen gevonden";
+                    }
+                ?>
+                </section>
+                <section class="information-box-title">
+                    <p class="information-title" > groenten  </p>
+                </section>
+                <section class="information-box">
+
+                <?php 
+                    $sql = "SELECT * FROM aanvulling WHERE groep='groen'";
+                    $visqr = $db->query($sql);
+
+                    if ($visqr->num_rows > 0) {
+                        // output data of each row
+                        while($row = $visqr->fetch_assoc()) {
+                            $aanvulling = $row["aanvulling"];
+                            $prijs = $row["prijs"];
+
+                            ?>
+                            <section class="prijs-tabel">
+                                <p class="information-naam"> <?= $aanvulling ?> </p> <p class="information-prijs-tabel">  <?= $prijs ?>  </p>
+                            </section>
+                            <?php
+
+                        }
+                    } else {
+                        echo "geen vlees aanvullingen gevonden";
+                    }
+                ?>
+                </section>
+        </section>
             <!-- start informatie conteiner -->
             <section  id="box3" class="informatie-blok-container">
                 <section class="information-box-title">

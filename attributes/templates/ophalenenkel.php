@@ -1,8 +1,8 @@
 <?php
 require_once "./attributes/templates/dbcon.php";
 
-
-$sql = "SELECT * FROM reservering WHERE id='135'";
+$last_id2 =intval($last_id2);
+$sql = "SELECT * FROM reservering WHERE id=$last_id2";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
