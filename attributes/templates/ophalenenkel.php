@@ -1,13 +1,14 @@
 <?php
-require_once "dbcon.php";
+require_once "./attributes/templates/dbcon.php";
 
-$sql = "SELECT * FROM reservering WHERE id=66";
+
+$sql = "SELECT * FROM reservering WHERE id='135'";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "Aantal personen: " . $row["personen"] . "<br>" . "Reservering datum: "  . $row["dag"] . "<br>"
+        echo "Aantal personen: " . $row["personen"] . "<br>" . "Reservering 23 datum: "  . $row["dag"] . "<br>"
         . "Arragement: " . $row["arragement"] . "<br>" . "<br>";
 
         $personen = $row["personen"];

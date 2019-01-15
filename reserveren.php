@@ -1,4 +1,3 @@
-
 <?php include_once('./attributes/templates/head.php'); ?> 
 <?php include_once('./attributes/templates/header-small.php'); ?> 
 <?php include_once('./attributes/templates/formchek.php'); ?> 
@@ -77,6 +76,8 @@
                         </section>
                        
                                 <!-- part 2 aanvullingen-->
+
+                            <!-- aanvullingen bbq -->
                             <?php if( $option == "bbq"){ ?>
                                 <section id="form-part-2">
                                     <div class="data-field">
@@ -84,10 +85,31 @@
                                         <input type="radio" name="arragamentPakket" value="club barbecue" checked> club barbecue <br>
                                         <input type="radio" name="arragamentPakket" value="party barbecue"> party barbecue <br>
                                         <input type="radio" name="arragamentPakket" value="club barbecue luxe"> club barbecue luxe <br>
-                                        <span class=""><?= isset($errors['dagdeel']) ? $errors['dagdeel'] : '' ?></span>
+                                        <span class=""><?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
                                     </div>
                                 </section>
                             <?php } ?>
+                            <!-- aanvullingen buffet -->
+                            <?php if( $option == "buffet"){ ?>
+                                <section id="form-part-2">
+                                    <div class="data-field">
+                                        <label> gewenste arragament</label>                        <br>
+                                        <input type="radio" name="arragamentPakket" value="4" checked> Buffet <br>
+                                        <input type="radio" name="arragamentPakket" value="5"> Hollands stampppot buffet <br>
+                                        <input type="radio" name="arragamentPakket" value="6">Itliaans buffet <br>
+                                        <input type="radio" name="arragamentPakket" value="7"> Feestavond arrangement <br>
+                                        <span class=""><?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
+                                    </div>
+                                    <div class="data-field">
+                                        <label> aanvullingen op arragement </label>                        <br>
+                                        <input type="checkbox" name="arragamentPakketAanvulling[]" value="8"> Dessert buffet <br>
+                                        <input type="checkbox" name="arragamentPakketAanvulling[]" value="9"> ijscokar <br>
+                                        <span class=""><?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
+                                    </div>
+                                </section>
+                            <?php } ?>
+                            
+
                         <section id="form-part-3">
                                 <!-- part 3 -->
                             <div class="data-field">
@@ -131,7 +153,3 @@
 </section>
 
 <?php include_once('./attributes/templates/footer.php'); ?> 
-
-
-
-

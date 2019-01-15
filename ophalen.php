@@ -38,13 +38,15 @@ if ($result->num_rows > 0) {
                     echo " geen persoon aan reservering gekoppeld";
                 }
                 
-                echo "totaalprijs perpersoon: " . $totaalprijs . "<br>" ;
-                $cal= $totaalprijs * $personen;
-                echo "totaalprijs (x ". $personen . " personen) " . $cal ."<br>" ."<br>";
+
             }
         } else {
             echo " geen aanvulling aan reservering gekoppeld";
         }
+
+        echo "totaalprijs perpersoon: " . $totaalprijs . "<br>" ;
+        $cal= $totaalprijs * $personen;
+        echo "totaalprijs (x ". $personen . " personen) " . $cal ."<br>" ."<br>";
 
         // haal de gekoppelde persoon op uit de database
         $sql = "SELECT * FROM persoon WHERE id='$psid'";

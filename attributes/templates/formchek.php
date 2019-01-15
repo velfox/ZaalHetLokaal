@@ -29,7 +29,9 @@ if (isset($_POST['submit'])) {
     }
     if (isset($_POST['arragamentPakket'])){
         $pakket = mysqli_escape_string($db, $_POST['arragamentPakket']);
-    } 
+        $pakket = intval($pakket);  
+    }
+
     $personen = mysqli_escape_string($db, $_POST['personen']);
     $naam = mysqli_escape_string($db, $_POST['naam']);
     $achternaam = mysqli_escape_string($db, $_POST['achternaam']);
@@ -66,25 +68,40 @@ if (isset($_POST['submit'])) {
             $result = TRUE;
         } 
 
-        //import de aanvullingen bbq
-        if($option == "bbq"){
-            if($pakket == "club barbecue"){
-                $pakketid = 1;
-            }
-            if($pakket == "party barbecue"){
-                $pakketid = 2;
-            }
-            if($pakket == "club barbecue luxe"){
-                $pakketid = 3;
-            }
-            if(isset($pakketid)){
+        
+        //plaats geselecteerde id van pakket in koppel tabel
+            if(isset($pakket)){
                 $query = "INSERT INTO aanvulling_reservering
                 (aanvulling_id, reservering_id)
-                VALUES ('$pakketid', $last_id2)";
+                VALUES ('$pakket', $last_id2)";
                 $result = mysqli_query($db, $query);
             }
-        }
+        
+            //plaats exstra opties in de kopple tablel
+            if (isset($_POST['arragamentPakketAanvulling'])) {
+                echo('ok?');
+                foreach ($_POST['arragamentPakketAanvulling'] as $aanvulling) {
+                    $aanvulling = mysqli_real_escape_string($db, $aanvulling);
+                    $query = "INSERT INTO aanvulling_reservering
+                    (aanvulling_id, reservering_id)
+                    VALUES ('$aanvulling', $last_id2)";
+                    $result = mysqli_query($db, $query);
+                    echo ($query);
+                }
+            }
 
+            // $aanvullingenqeury = "INSERT INTO aanvulling_reservering 
+            // (aanvulling_id, reservering_id) VALUES";
+            // //aanvullingen
+            // if (isset($_POST['arragamentPakketAanvulling'])) {
+            //     echo('ok?');
+            //     foreach ($_POST['arragamentPakketAanvulling'] as $aanvulling) {
+            //         $aanvulling = mysqli_real_escape_string($db, $aanvulling);
+            //         echo($aanvulling);
+            //         $aanvullingenqeury .= "($aanvulling, " .$last_id2. "),";
+            //     }
+            //     $aanvullingenqeury = substr_replace($aanvullingenqeury, "", -1);
+            // }
 
 
         if ($result) {
@@ -104,7 +121,7 @@ if (isset($_POST['submit'])) {
         }
 
         //Close connection
-        mysqli_close($db);
+        
     }
 }
 ?>
