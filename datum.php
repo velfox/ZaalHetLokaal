@@ -5,7 +5,9 @@ $datumY = date("y");
 $dagenMaand = cal_days_in_month(CAL_GREGORIAN,$datumM,2019);
 echo $dagenMaand;
 
-
+$tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
+$lastmonth = mktime(0, 0, 0, date("m")-1, date("d"),   date("Y"));
+$nextyear  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+1);
 
 $datum = date("m");
 

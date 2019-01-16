@@ -6,9 +6,9 @@ session_start();
 if (isset($_POST['submit'])) {
     require_once "./attributes/templates/dbcon.php";
     $wachtwoord = mysqli_escape_string($db, $_POST['wachtwoord']);
-    $gebruikersnaam = mysqli_escape_string($db, $_POST['gebruikersnaam']);
+    $gebruikersnaamps = mysqli_escape_string($db, $_POST['gebruikersnaam']);
 
-    if ($gebruikersnaam == "") {
+    if ($gebruikersnaamps == "") {
         $errors[] = 'gebruikersnaam mag niet leeg zijn.';
     }
     if ($wachtwoord == "") {
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
     }
 
     if (empty($errors)) {
-        $sql = "SELECT * FROM adminor WHERE username='$gebruikersnaam'";
+        $sql = "SELECT * FROM adminor WHERE username='$gebruikersnaamps'";
         $gebruikersnaam = $db->query($sql);
 
         if ($gebruikersnaam->num_rows > 0) {
@@ -25,9 +25,8 @@ if (isset($_POST['submit'])) {
                 $password = $row["password"];
             }
             if (password_verify( $wachtwoord, $password)) {
-                $_SESSION['user'] = $gebruikersnaam;
+                $_SESSION['user'] = $gebruikersnaamps;
                 $_SESSION['time_start_login'] = time();
-                header('admin2.php');
             } else {
                 $errors[] = 'wachtwoord gegevens klopppen niet.';
             }
@@ -39,9 +38,8 @@ if (isset($_POST['submit'])) {
 } 
 
 if(isset($_SESSION['user'])){
-    if (isset($_POST['submit'])) { 
-        unset($_SESSION["user"]);
-    }
+    header("location: dashboard.php");
+
 ?>
     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
     <input type="submit" name="loguit" value="loguit"/>
