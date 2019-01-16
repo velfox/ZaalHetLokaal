@@ -608,7 +608,7 @@ footer{
 .reservering{
     background-color: #C7B299;;
     width: 500px;
-    padding: 20px;
+    padding: 0px;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
@@ -624,6 +624,8 @@ footer{
 .datum{
     background-color: #df8b4c; 
     padding: 10px;
+    color: #716358;
+    font-family: 'krijt2';
 }
 
 .gegevens{
@@ -640,4 +642,11 @@ footer{
 .result-title{
     padding: 5px; 
     padding: 10px;
+    color: #fff;
+    font-family: 'krijt2';
+}
+
+.actions{
+    display: flex;
+    flex-direction: column
 }

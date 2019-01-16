@@ -171,3 +171,7 @@
 </section>
 
 <?php include_once('./attributes/templates/footer.php'); ?> 
+
+SELECT reservering.id as idres, reservering.dagdeelm, reservering.dagdeelo, reservering.dagdeela, reservering.accepted, reservering.dag, reservering.arragement, persoon.naam, persoon.achternaam, persoon.email, persoon.tel, persoon.id as idper
+FROM reservering
+INNER JOIN persoon ON reservering.persoon_id = persoon.id;

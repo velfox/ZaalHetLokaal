@@ -6,7 +6,7 @@ require_once "./attributes/templates/dbcon.php";
 
 $totaalprijs = 00.00;
 
-$sql = "SELECT * FROM resenper2 LIMIT 3";
+$sql = "SELECT * FROM resenper2 ";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
@@ -28,10 +28,6 @@ if ($result->num_rows > 0) {
         $idper = $reservering["idper"];
         $idresSQL = 1;
         $idresSQL = intval($idres);
-
-
-
-
 
         ?>
 
@@ -78,9 +74,8 @@ if ($result->num_rows > 0) {
                             <p class="totaalprijs"> Totaal: <?= $totaalprijs ?> € </p>
                         </section>
                         <section class="actions">
-                        <p class="datum"> knop 1</p>
-                        <p class="title"> knop 2 </p>
-                        <p class="status">knop 3 </p>
+                        <button class="main-button"> verweideren </button>
+                        <button class="main-button"> Aanpassen </button>
                     </section>
                     </section>
 
