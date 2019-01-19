@@ -395,6 +395,7 @@ header{
 /* start more information layout */
 .information{
     width: 100%;
+    height: fit-content;
     background-color: #998675;
     display: flex;
     flex-direction: row;
@@ -413,7 +414,7 @@ header{
     transition: all 0.5s;
     -webkit-transition: all 0.5s; /* Safari 3.1 to 6.0 */
     justify-content: space-around;
-}
+} 
 
 .information-box{
     max-width: 1105px;
@@ -538,6 +539,20 @@ header{
 .exw{
     width: fit-content;
 }
+
+
+@media only screen and (max-width: 1000px) {
+    .information-conainer{
+        flex-direction: column;
+    } 
+    .information-menu{
+        width: 95%;
+    }
+    
+    .information-content{
+        width: 95%;
+    }
+  }
 /* end more information layout */
 
 /* end inroduction */
@@ -563,7 +578,7 @@ footer{
 }
 
 .title{
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 5px;
     border-bottom: 4px solid #FEF7DF;
     border-image: url(/attributes/img/borders/chalk-border-1_1.png) 10 stretch;
@@ -607,7 +622,7 @@ footer{
 
 .reservering{
     background-color: #C7B299;;
-    width: 500px;
+    width: 650px;
     padding: 0px;
     display: flex;
     flex-direction: column;
@@ -618,6 +633,7 @@ footer{
     background-color: #716358;
     display: flex;
     flex-direction: row; 
+    justify-content: space-between;
     padding: 5px; 
 }
 
@@ -632,7 +648,7 @@ footer{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 5px;
+    padding: 20px 0px;
 }
 
 .status{
@@ -649,4 +665,124 @@ footer{
 .actions{
     display: flex;
     flex-direction: column
+}
+
+.status {
+    background-color: #588C73;
+    padding: 10px;
+    color: #fff;
+    font-family: 'krijt2';
+}
+
+.del {
+    margin-top: 5px;
+    background-color: rgb(140, 88, 88)!important;
+}
+
+.del:hover {
+    background-color: rgb(168, 43, 43)!important;
+}
+..prijs-tabel {
+    display: flex;
+    max-width: 800px;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+/* formlayout */
+
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #588C73;
+    color: rgb(255, 255, 255);
+  }
+
+  input[type=email] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: #588C73;
+    color: rgb(255, 255, 255);
+  }
+
+  ::placeholder {
+    color: rgb(211, 211, 211);
+    opacity: 1; /* Firefox */
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color: rgb(211, 211, 211);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+   color: rgb(211, 211, 211);
+  }
+
+  .checkbox input[type="checkbox"] {
+    opacity: 0;
+}
+
+.checkbox label {
+    position: relative;
+    display: inline-block;
+    
+    /*16px width of fake checkbox + 6px distance between fake checkbox and text*/
+    padding-left: 22px;
+}
+
+.checkbox label::before,
+.checkbox label::after {
+    position: absolute;
+    content: "";
+    
+    /*Needed for the line-height to take effect*/
+    display: inline-block;
+}
+
+/*Outer box of the fake checkbox*/
+.checkbox label::before{
+    height: 16px;
+    width: 16px;
+    
+    border: 1px solid;
+    left: 0px;
+    
+    /*(24px line-height - 16px height of fake checkbox) / 2 - 1px for the border
+     *to vertically center it.
+     */
+    top: 3px;
+}
+
+/*Checkmark of the fake checkbox*/
+.checkbox label::after {
+    height: 5px;
+    width: 9px;
+    border-left: 2px solid;
+    border-bottom: 2px solid;
+    
+    transform: rotate(-45deg);
+    
+    left: 4px;
+    top: 7px;
+}
+
+/*Hide the checkmark by default*/
+.checkbox input[type="checkbox"] + label::after {
+    content: none;
+}
+
+/*Unhide on the checked state*/
+.checkbox input[type="checkbox"]:checked + label::after {
+    content: "";
+}
+
+/*Adding focus styles on the outer-box of the fake checkbox*/
+.checkbox input[type="checkbox"]:focus + label::before {
+    outline: rgb(59, 153, 252) auto 5px;
 }

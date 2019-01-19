@@ -29,7 +29,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> catering <h3></div>
                 <div><a href="catering.php"><button class="main-button margin-button"> meer informatie </button></a></div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=catering"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
     </section>
@@ -41,7 +41,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> kookworkshop <h3></div>
                 <div><a href="kookworkshop.php"><button class="main-button margin-button"> meer informatie </button></a> </div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=kookworkshop"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
                 <section class="option">
@@ -51,7 +51,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> high tea <h3></div>
                 <div><a href="HighTea.php"><button class="main-button margin-button"> meer informatie </button></a> </div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=HighTea"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
     </section>
@@ -73,7 +73,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> lunch <h3></div>
                 <div><a href="lunch.php"><button class="main-button margin-button"> meer informatie </button></a></div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=lunch"><button class="second-button margin-button"> reserveren </button></a></div>
             </section>
         </section>
     </section>
@@ -85,7 +85,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> receptie <h3></div>
                 <div><a href="receptie.php"><button class="main-button margin-button"> meer informatie </button></a> </div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=receptie"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
                 <section class="option">
@@ -106,7 +106,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> vergadering <h3></div>
                 <div><a href="vergadering.php"><button class="main-button margin-button"> meer informatie </button></a> </div>
-                <div><button class="second-button margin-button"> reserveren </button> </div>
+                <div><a href="reserveren.php?option=vergadering"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
                 <section class="option">

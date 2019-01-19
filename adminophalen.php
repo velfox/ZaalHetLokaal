@@ -4,9 +4,76 @@
 <?php
 require_once "./attributes/templates/dbcon.php";
 
+
+if (isset($_POST['accepteren'])) {
+    $updateid = $_POST['tracefield'];
+    $sql = "UPDATE reservering SET accepted=1 WHERE id='$updateid'";
+
+if (mysqli_query($db, $sql)) {
+    ?>
+     <section class=reservering>
+        <section class="gegevens-tabel">
+            <p class="information-prijs-tabel"> Reservering met nummer <?= $updateid ?> geacepteerd </p>
+        </section>
+    </section>
+    <?php
+    } else {
+        ?>
+        <section class=reservering>
+        <section class="gegevens-tabel">
+            <p class="information-prijs-tabel"> Reservering met nummer <?= $updateid ?> is niet gevonden ! <br> <?php  mysqli_error($db) ?> </p>
+        </section>
+    </section>
+    <?php
+    }
+}
+
+if (isset($_POST['delete'])) {
+    $delid = $_POST['tracefielddel'];
+    $sql = "DELETE FROM reservering WHERE id='$delid'";
+
+if (mysqli_query($db, $sql)) {
+    ?>
+     <section class=reservering>
+        <section class="gegevens-tabel">
+            <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is verweidert </p>
+        </section>
+    </section>
+    <?php
+    } else {
+        ?>
+        <section class=reservering>
+        <section class="gegevens-tabel">
+            <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is niet gevonden ! <br> <?php  mysqli_error($db) ?> </p>
+        </section>
+    </section>
+    <?php
+    }
+
+    $sql = "DELETE FROM aanvulling_reservering WHERE reservering_id='$delid'";
+    if (mysqli_query($db, $sql)) {
+        ?>
+         <section class=reservering>
+            <section class="gegevens-tabel">
+                <p class="information-prijs-tabel"> aanvullingen met nummer <?= $delid ?> is verweidert </p>
+            </section>
+        </section>
+        <?php
+        } else {
+            ?>
+            <section class=reservering>
+            <section class="gegevens-tabel">
+                <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is niet gevonden ! <br> <?php  mysqli_error($db) ?> </p>
+            </section>
+        </section>
+        <?php
+        }
+}
+
+
 $totaalprijs = 00.00;
 
-$sql = "SELECT * FROM resenper2 ";
+$sql = "SELECT * FROM resenper2 ORDER BY idres DESC";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
@@ -28,22 +95,45 @@ if ($result->num_rows > 0) {
         $idper = $reservering["idper"];
         $idresSQL = 1;
         $idresSQL = intval($idres);
-
         ?>
 
         <section class=reservering>
             <section class="reservering-title title">
                 <p class="datum">   <?= $dag ?> </p>
                 <p class="result-title">   <?= $arragement ?> </p>
-                <p class="status">  status: <?php $acc ?> </p>
+                 <?php if($acc == 0){
+                  ?>
+                  <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
+                    <input class="main-button" type="submit" name="accepteren" value="Accepteren" />
+                    <input type="hidden" id="tracefield" name="tracefield" value="<?= $idres; ?>">
+                  </form>
+                  <?php
+                }else { ?> <p class="status"> Geaccepteerd </p> <?php }  ?>
+                       
+             
             </section>
             <section class="gegevens">    
                 <section class="persoon">
-                    <p class="naam"> Naam: <?= $naam ?> </p>
-                    <p class="achternaam"> achternaam: <?= $achternaam ?> </p>
-                    <p class="email"> email: <?= $email ?> </p>
-                    <p class="tel"> Telefoon: <?= $tel ?> </p>
+                <p class="arragement title"> contact gegevens </p>
+                <section class="gegevens-tabel">
+                    <p class="information-naam"> naam </p> <p class="information-prijs-tabel"> <?= $naam ?> </p>
+                </section>
+                <section class="gegevens-tabel">
+                    <p class="information-naam"> achternaam </p> <p class="information-prijs-tabel"> <?= $achternaam ?> </p>
+                </section>
+                <section class="gegevens-tabel">
+                    <p class="information-naam"> email </p> <p class="information-prijs-tabel"> <?= $email ?> </p>
+                </section>
+                <section class="gegevens-tabel">
+                    <p class="information-naam"> Telefoon </p> <p class="information-prijs-tabel"> <?= $tel ?> </p>
+                </section>
 
+                    <p class="arragement title"> acties voor reservering </p>
+                    <button class="main-button"> Aanpassen </button>
+                    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
+                        <input class="main-button del" type="submit" name="delete" value="Verweideren" />
+                        <input type="hidden" id="tracefield" name="tracefielddel" value="<?= $idres; ?>">
+                    </form>
                     </section class="arragement">
                         <section class="aavullingen">
                         <p class="arragement title"> <?= $arragement ?> </p>
@@ -63,22 +153,28 @@ if ($result->num_rows > 0) {
                                         $prijs =  $aanvulling2['prijs'];
                                         $totaalprijs = $totaalprijs + $prijs;
                                         ?>
-                                        
-                                        <p class="pakket-naam"> aanvulling: <?= $aanvulling ?>   </p>
-                                        <p class="pakket-prijs"> prijsaanvulling: <?= $prijs ?> € </p>
-
+                                        <section class="prijs-tabel">
+                                            <p class="information-naam"> <?= $aanvulling ?>   </p> <p class="information-prijs-tabel"> <?= $prijs ?> € </p>
+                                        </section>
                                         <?php
                                     }
                                 }
-                        } }  ?>
-                            <p class="totaalprijs"> Totaal: <?= $totaalprijs ?> € </p>
+                        } }  
+                        $totaalprijscal = $totaalprijs * $aantalpersoonen
+                        ?>
+                         <p class="arragement title"> <?= $arragement ?> totaal </p>
+                              <section class="prijs-tabel">
+                                    <p class="information-naam"> Totaal per persoon </p> <p class="information-prijs-tabel"> <?= $totaalprijs ?> € </p>
+                                </section>
+                                <section class="prijs-tabel">
+                                    <p class="information-naam"> Totaal x <?= $aantalpersoonen ?> personen </p> <p class="information-prijs-tabel"> <?= $totaalprijscal ?> € </p>
+                                </section>
+                                <p class="arragement title"> <?= $arragement ?> gegevens </p>
+                                <section class="prijs-tabel">
+                                    <p class="information-naam"> aantal personen  personen </p> <p class="information-prijs-tabel"> <?= $aantalpersoonen ?> </p>
+                                </section>
                         </section>
-                        <section class="actions">
-                        <button class="main-button"> verweideren </button>
-                        <button class="main-button"> Aanpassen </button>
                     </section>
-                    </section>
-
                 </section> 
             </section>
         </section>

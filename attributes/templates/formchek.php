@@ -1,13 +1,23 @@
 <?php
+require_once "./attributes/templates/dbcon.php";
 
 if (isset($_GET['option'])){
-   $option = $_GET['option']; 
+    $option = $_GET['option']; 
+    $option = mysqli_real_escape_string($db, $option);
+   if(empty($option)) {
+    header('Location: mogelijkheden.php'); 
+
+   }
+   if( !($option == "bbq" || $option == "buffet" || $option == "catering" || $option == "lunch" || $option == "receptie" || $option == "vergadering" || $option == "HighTea" || $option == "kookworkshop")){
+    header('Location: mogelijkheden.php'); 
+     
+   }
+} else {
+    header('Location: mogelijkheden.php');
 }
 //Check if Post isset, else do nothing
 if (isset($_POST['submit'])) {
     //Require database in this file
-    require_once "./attributes/templates/dbcon.php";
-
     //Postback with the data showed to the user, first retrieve data from 'Super global'
     // basic gegevens
     $dagdeel = 0;
@@ -50,8 +60,8 @@ if (isset($_POST['submit'])) {
 
         //Save the record to the database
         $query = "INSERT INTO persoon
-              (naam, achternaam)
-                VALUES ('$naam', '$achternaam')";
+              (naam, achternaam, email, tel)
+                VALUES ('$naam', '$achternaam', '$email', '$tel')";
         // $result = mysqli_query($db, $query);
 
         if ($db->query($query) === TRUE) {
@@ -79,7 +89,6 @@ if (isset($_POST['submit'])) {
         
             //plaats exstra opties in de kopple tablel
             if (isset($_POST['arragamentPakketAanvulling'])) {
-                echo('ok?');
                 foreach ($_POST['arragamentPakketAanvulling'] as $aanvulling) {
                     $aanvulling = mysqli_real_escape_string($db, $aanvulling);
                     $query = "INSERT INTO aanvulling_reservering
