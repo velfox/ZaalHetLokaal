@@ -1,6 +1,6 @@
 <?php
 $to = "timedevos@gmail.com";
-$subject = "Reservering Zaal het Lokaal";
+$subject = "Nieuwe Reservering Zaal het Lokaal";
 
 $name = "tim";
 
@@ -11,8 +11,8 @@ $message = "
 <title>Reservering Zaal het Lokaal</title>
 </head>
 <body>
-<p> Hallo $name, uw reservering is geplaast! </p>
-<p> binnen 2 werkdagen ontvangt u van ons een reactie.</p>
+<p> Hallo vader, </p>
+<p> $name heeft eeen reservering is geplaast! </p>
 </body>
 </html>
 ";

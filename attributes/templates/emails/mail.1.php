@@ -11,8 +11,9 @@ $message = "
 <title>Reservering Zaal het Lokaal</title>
 </head>
 <body>
-<p> Hallo $name, uw reservering is geplaast! </p>
+<p> Hallo $name, uw reservering is ontvangen! </p>
 <p> binnen 2 werkdagen ontvangt u van ons een reactie.</p>
+<p> Met vriendelijke groet zaal het lokaal.</p>
 </body>
 </html>
 ";

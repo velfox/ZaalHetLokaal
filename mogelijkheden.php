@@ -90,7 +90,7 @@ include_once ('./attributes/templates/header-small.php');
         </section>
                 <section class="option">
             <section class="option-left">
-                <img src="./attributes/img/options/bridge.png" alt="buffet">
+                <img src="./attri                                                                                                           butes/img/options/bridge.png" alt="buffet">
             </section>
             <section class="option-right">
                 <div><h3> bridge <h3></div>

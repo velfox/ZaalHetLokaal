@@ -132,6 +132,20 @@
                             </div>
                         </section>
                         <?php } ?>
+
+                    <!-- aanvullingen kookworkshop -->
+                    <?php if( $option == "kookworkshop"){ ?>
+                        <section id="form-part-2">
+                            <div class="data-field">
+                                <section class="information-box-title">
+                                    <p class="information-title"> Gewenst arragement <p>
+                                </section>
+                                <input type="radio" name="arragamentPakket" value="57" checked> kookworkshop <br>
+                                <span class="">
+                                    <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
+                            </div>
+                        </section>
+                        <?php } ?>
                             
                         <!-- aanvullingen lunch -->
                         <?php if( $option == "lunch"){ ?>
@@ -155,8 +169,12 @@
                                 <section class="information-box-title">
                                     <p class="information-title"> Gewenst arragement <p>
                                 </section>
-                                <input type="radio" name="arragamentPakket" value="4" checked> Buffet <br>
-                                <input type="radio" name="arragamentPakket" value="5"> Hollands stampppot buffet <br>
+                                <section class="prijs-tabel">
+                                <input type="radio" name="arragamentPakket" value="4" checked> <p class="information-naam"> Buffet </p>
+                                </section>
+                                <section class="prijs-tabel">
+                                <input type="radio" name="arragamentPakket" value="5"> <p class="information-naam"> Hollands stampppot buffet </p>
+                                </section>
                                 <input type="radio" name="arragamentPakket" value="6">Itliaans buffet <br>
                                 <input type="radio" name="arragamentPakket" value="7"> Feestavond arrangement <br>
                                 <span class="">
@@ -237,18 +255,16 @@
                                 <input class="main-button" type="submit" name="submit" value="Reserveren" />
                             </div>
                         </section>
+                        
                     </form>
                 </section>
-            </section>
-        </section>
-        <?php } ?>
-        <section class="information-menu">
-            <section class="information-reserveren menu-box">
+                <section class="information-reserveren menu-box">
                 <p class="information-title"> vragen? </p>
                 <div><button class="main-button margin-button"> contact </button></div>
             </section>
-
+            </section>
         </section>
+        <?php } ?>
     </section>
 </section>
 

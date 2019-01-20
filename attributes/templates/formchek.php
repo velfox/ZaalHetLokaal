@@ -24,6 +24,7 @@ if (isset($_POST['submit'])) {
     $ochtend = 0;
     $middag = 0;
     $avond = 0;
+    $pakket = 0;
     $datum = mysqli_real_escape_string($db, $_POST['datum']);
     if (isset($_POST['ochtend'])){
         $ochtend = 1;
@@ -50,7 +51,6 @@ if (isset($_POST['submit'])) {
     // soort arragement
     $tracefield = mysqli_escape_string($db, $_POST['tracefield']);
     $option =  $tracefield;
-    echo($option);
 
     //Require the form validation handling
     require_once "./attributes/templates/form-validation.php";
@@ -67,8 +67,6 @@ if (isset($_POST['submit'])) {
         if ($db->query($query) === TRUE) {
             $last_id = $db->insert_id; 
         } 
-
-        echo "New record created successfully. Last inserted ID is: " . $last_id;
 
         $query = "INSERT INTO reservering
                   (dag, dagdeelm, dagdeelo, dagdeela, personen, arragement, persoon_id)
@@ -95,7 +93,6 @@ if (isset($_POST['submit'])) {
                     (aanvulling_id, reservering_id)
                     VALUES ('$aanvulling', $last_id2)";
                     $result = mysqli_query($db, $query);
-                    echo ($query);
                 }
             }
 

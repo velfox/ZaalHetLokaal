@@ -176,8 +176,6 @@ if ($result->num_rows > 0) {
                         </section>
                     </section>
                 </section> 
-            </section>
-        </section>
 
         <?php
 
