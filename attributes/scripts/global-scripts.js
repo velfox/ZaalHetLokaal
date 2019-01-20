@@ -80,3 +80,30 @@ $('document').ready(function(){
     });
 });
 
+// update datum veld en controlleer op beschikbaarheid
+
+// onload
+$(function() {
+    // date element ophalen
+
+    // let dataElement = document.getElementById("date");
+    let dateElement = $("#date");
+
+    // on change
+    dateElement.on("change", function(e) {
+        console.log( "test" );
+        console.log("dateElement");
+        // datum ophalen (value)
+        let selectedDate = e.target.value;
+        console.log(selectedDate);
+        // ajax call
+        $.get("/datumchek.php?date=" + selectedDate, function(data){
+            $.each(data, function(index, val, test) {
+                $("#melding").empty();
+                console.log("pong");
+                $("#melding").append('<p class="'+val+'">'+val+'</p>');
+            });
+        });
+    })
+});
+

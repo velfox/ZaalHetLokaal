@@ -96,6 +96,7 @@ if ($result->num_rows > 0) {
         $idresSQL = 1;
         $idresSQL = intval($idres);
         ?>
+        
 
         <section class=reservering>
             <section class="reservering-title title">

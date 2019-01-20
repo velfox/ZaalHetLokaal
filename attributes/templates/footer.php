@@ -1,4 +1,5 @@
         <footer>
+        <script src="./attributes/scripts/global-scripts.js"></script>
             <section class="footercontainer">
             <section class="footerblok">
 

@@ -59,12 +59,11 @@ if ($result->num_rows > 0) {
         $dagdeelo2[] = $reservering["dagdeelo"];
         $dagdeelm2[] = $reservering["dagdeelm"];
         $dagdeela2[] = $reservering["dagdeela"];
-        $acc2[] = $reservering["accepted"];
         $dag2[] = $reservering["dag"];
         $arragement2[] = $reservering["arragement"];
-        $idresSQL2[] = 1;
-        $idresSQL2[] = intval($idres);
-        $acc2 = $reservering["accepted"];
+        $accepteer = $reservering["accepted"];
+        echo $accepteer;
+        var_dump($accepteer);
     }
 } else {
     echo 'db fail';
@@ -114,43 +113,38 @@ $countdag = count($dag2);
                 $i++;
             } 
 
-        while($x <= $dagen) {
-            ?>
-        <section class="dag" <?php if ( $new_date == $vandaag){ ?> id="vandaag" <?php  } ?> >
-            <section class="dag-title">
-                <?= $new_date ?>
-            </section>
-            <?php 
-            while($ddn <= $countdag) {
-                $ddnc = $ddn -1;
-                if ($dag2[$ddnc] == "$new_date"){
-                    ?> <p class="greserveerd" <?php if ( $acc[$ddnc] == 1){ ?> id="bevestigd" <?php  } ?>> <?= $arragement2[$ddnc] ?> </p> <?php
-                }
-                $ddn++;
-            } $ddn = 1; ?>
-            
-        </section> 
-        <?php
-        $new_date = date('Y-m-d', strtotime($new_date . ' +1 day'));
-        $x++;
-        } ?>
+            while($x <= $dagen) {
+                ?>
+            <section class="dag" <?php if ( $new_date == $vandaag){ ?> id="vandaag" <?php  } ?> >
+                <section class="dag-title">
+                    <?= $new_date ?>
+                </section>
+                <?php 
+                while($ddn <= $countdag) {
+                    $ddnc = $ddn -1;
+                    if ($dag2[$ddnc] == "$new_date"){
+                        ?> <p class="greserveerd">
+                         <?= $arragement2[$ddnc] ?>
+                         <br>
+                         </p> <?php
+                    }
+                    $ddn++;
+                } $ddn = 1; ?>
+                
+            </section> 
+            <?php
+            $new_date = date('Y-m-d', strtotime($new_date . ' +1 day'));
+            $x++;
+            } ?>
+        
         </section>
     </section>
 
     
 <?php        
     $aantalres2 = count($idres2);
-    $aantalacc = count($acc2);
-    $notacc = 0;
-    $acc = 1;
-    $ddnca = 0;
-    while($acc <= $aantalacc) {
-        $ddnca = $acc -1;
-        if ($acc2[$ddnc] == "$new_date"){
-          $notacc = $notacc + 1;
-        }
-        $acc++;
-    } $acc = 1; ?>
+
+?> 
 <section class=reservering>
     <section class="gegevens-tabel">
 <p class="information-prijs-tabel"> <?php if($aantalres2 == 1){ ?> Er is <?=  $aantalres2 ?> een reservering waarvan <?php }else{?> Er zijn  <?=  $aantalres2 ?> reserveringen <?php } ?> waarvan  <?=  $notacc ?> openstaand  </p>

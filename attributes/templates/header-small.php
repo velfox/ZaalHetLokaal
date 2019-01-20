@@ -1,4 +1,4 @@
-<script src="./attributes/scripts/global-scripts.js"></script>
+
 
 <header class="small">
     <section class="header-text-placeholder">

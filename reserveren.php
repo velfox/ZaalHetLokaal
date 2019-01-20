@@ -78,7 +78,10 @@
                                 <section class="information-box-title">
                                     <p class="information-title"> Selecteer de datum <p>
                                 </section>
-                                <input type="date" name="datum">
+                                <div class="datecontainer">
+                                 <input id="date" type="date" name="datum">
+                                    <div id="melding"></div>
+                                </div>
                             </div>
                             <div class="data-field">
                                 <section class="information-box-title">

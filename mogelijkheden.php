@@ -29,7 +29,7 @@ include_once ('./attributes/templates/header-small.php');
             <section class="option-right">
                 <div><h3> catering <h3></div>
                 <div><a href="catering.php"><button class="main-button margin-button"> meer informatie </button></a></div>
-                <div><a href="reserveren.php?option=catering"><button class="second-button margin-button"> reserveren </button></a> </div>
+                <!-- <div><a href="reserveren.php?option=catering"><button class="second-button margin-button"> reserveren </button></a> </div> -->
             </section>
         </section>
     </section>
@@ -88,9 +88,9 @@ include_once ('./attributes/templates/header-small.php');
                 <div><a href="reserveren.php?option=receptie"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
-                <section class="option">
+        <section class="option">
             <section class="option-left">
-                <img src="./attri                                                                                                           butes/img/options/bridge.png" alt="buffet">
+            <img src="./attributes/img/options/bridge.png" alt="buffet">                                                                                              
             </section>
             <section class="option-right">
                 <div><h3> bridge <h3></div>
@@ -109,7 +109,7 @@ include_once ('./attributes/templates/header-small.php');
                 <div><a href="reserveren.php?option=vergadering"><button class="second-button margin-button"> reserveren </button></a> </div>
             </section>
         </section>
-                <section class="option">
+                <!-- <section class="option">
             <section class="option-left">
             </section>
             <section class="option-right">
@@ -117,7 +117,7 @@ include_once ('./attributes/templates/header-small.php');
                 <div><a href="idee.php"><button class="main-button margin-button"> meer informatie </button></a> </div>
                 <div><button class="second-button margin-button"> reserveren </button> </div>
             </section>
-        </section>
+        </section> -->
 </section>
 <?php 
 include_once ('./attributes/templates/footer.php');

@@ -50,7 +50,38 @@ if ($eerstedagNummer == 6 &&  $dn == 0) {
     $exstadagen = 5; $dn = 1;
 }
 
+require_once "./attributes/templates/dbcon.php";
 
+$sql = "SELECT * FROM resenper2 ORDER BY idres DESC";
+$result = $db->query($sql);
+
+if ($result->num_rows > 0) {
+    // output data of each row
+    while($reservering = $result->fetch_assoc()) {
+
+        $idres[] = $reservering["idres"];
+        $dagdeelo[] = $reservering["dagdeelo"];
+        $dagdeelm[] = $reservering["dagdeelm"];
+        $dagdeela[] = $reservering["dagdeela"];
+        $acc[] = $reservering["accepted"];
+        $dag[] = $reservering["dag"];
+        $aantalpersoonen[] = $reservering["personen"];
+        $arragement[] = $reservering["arragement"];
+        $naam[] = $reservering["naam"];
+        $achternaam[] = $reservering["achternaam"];
+        $email[] = $reservering["email"];
+        $tel[] = $reservering["tel"];
+        $idper[] = $reservering["idper"];
+        $idresSQL[] = 1;
+        $idresSQL[] = intval($idres);
+    }
+} else {
+    echo 'db fail';
+}
+
+echo $idres[0];
+echo count($idres);
+echo $countdag = count($dag);
 ?>
 
 <section class="kalender">
@@ -99,6 +130,13 @@ if ($eerstedagNummer == 6 &&  $dn == 0) {
             <section class="dag-title">
                 <?= $new_date ?>
             </section>
+            <?php 
+            while($y <= $countdag) {
+                if( $dag[$y] == $new_date){
+                 ?> <p> gereserveerd: <?= $arragement[$y] ?> <?php 
+                }
+                $y++;
+            } ?>
         <?php
         $new_date = date('Y-m-d', strtotime($new_date . ' +1 day'));
         $x++;
