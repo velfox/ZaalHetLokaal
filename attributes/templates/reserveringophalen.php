@@ -5,75 +5,11 @@
 require_once "./attributes/templates/dbcon.php";
 
 
-if (isset($_POST['accepteren'])) {
-    $updateid = $_POST['tracefield'];
-    $sql = "UPDATE reservering SET accepted=1 WHERE id='$updateid'";
-
-if (mysqli_query($db, $sql)) {
-    ?>
-     <section class=reservering>
-        <section class="gegevens-tabel">
-            <p class="information-prijs-tabel"> Reservering met nummer <?= $updateid ?> geacepteerd </p>
-        </section>
-    </section>
-    <?php
-    } else {
-        ?>
-        <section class=reservering>
-        <section class="gegevens-tabel">
-            <p class="information-prijs-tabel"> Reservering met nummer <?= $updateid ?> is niet gevonden ! <br> <?php  mysqli_error($db) ?> </p>
-        </section>
-    </section>
-    <?php
-    }
-}
-
-if (isset($_POST['delete'])) {
-    $delid = $_POST['tracefielddel'];
-    $sql = "DELETE FROM reservering WHERE id='$delid'";
-
-if (mysqli_query($db, $sql)) {
-    ?>
-     <section class=reservering>
-        <section class="gegevens-tabel">
-            <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is verweidert </p>
-        </section>
-    </section>
-    <?php
-    } else {
-        ?>
-        <section class=reservering>
-        <section class="gegevens-tabel">
-            <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is niet gevonden ! <br> <?php  mysqli_error($db) ?> </p>
-        </section>
-    </section>
-    <?php
-    }
-
-    $sql = "DELETE FROM aanvulling_reservering WHERE reservering_id='$delid'";
-    if (mysqli_query($db, $sql)) {
-        ?>
-         <section class=reservering>
-            <section class="gegevens-tabel">
-                <p class="information-prijs-tabel"> aanvullingen met nummer <?= $delid ?> is verweidert </p>
-            </section>
-        </section>
-        <?php
-        } else {
-            ?>
-            <section class=reservering>
-            <section class="gegevens-tabel">
-                <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is niet gevonden ! <br> <?php  mysqli_error($db) ?> </p>
-            </section>
-        </section>
-        <?php
-        }
-}
 
 
 $totaalprijs = 00.00;
 
-$sql = "SELECT * FROM resenper2 ORDER BY idres DESC LIMIT 1";
+$sql = "SELECT * FROM resenper2 WHERE idres=$last_id2";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
@@ -102,16 +38,6 @@ if ($result->num_rows > 0) {
             <section class="reservering-title title">
                 <p class="datum">   <?= $dag ?> </p>
                 <p class="result-title">   <?= $arragement ?> </p>
-                 <?php if($acc == 0){
-                  ?>
-                  <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
-                    <input class="main-button" type="submit" name="accepteren" value="Accepteren" />
-                    <input type="hidden" id="tracefield" name="tracefield" value="<?= $idres; ?>">
-                  </form>
-                  <?php
-                }else { ?> <p class="status"> Geaccepteerd </p> <?php }  ?>
-                       
-             
             </section>
             <section class="gegevens">    
                 <section class="persoon">

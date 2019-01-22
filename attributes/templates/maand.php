@@ -24,6 +24,7 @@ $i = 0;
 $dn = 0;
 $tvj = 0;
 $exstadagen = 0;
+$nietacc = 0;
 
 if ($eerstedagNummer == 0 && $dn == 0)  {
     $exstadagen = 6; $dn = 1;
@@ -61,9 +62,8 @@ if ($result->num_rows > 0) {
         $dagdeela2[] = $reservering["dagdeela"];
         $dag2[] = $reservering["dag"];
         $arragement2[] = $reservering["arragement"];
-        $accepteer = $reservering["accepted"];
-        echo $accepteer;
-        var_dump($accepteer);
+        $accfix = $reservering["accepted"];
+        $accepteer[] = "acc$accfix";
     }
 } else {
     echo 'db fail';
@@ -117,16 +117,22 @@ $countdag = count($dag2);
                 ?>
             <section class="dag" <?php if ( $new_date == $vandaag){ ?> id="vandaag" <?php  } ?> >
                 <section class="dag-title">
-                    <?= $new_date ?>
+                    <?php $displaydate = $new_date; ?>
+
+                   <?php  echo str_replace("2019-","","$displaydate"); ?>
                 </section>
                 <?php 
                 while($ddn <= $countdag) {
                     $ddnc = $ddn -1;
+                   $nummeracc = $accepteer[$ddnc];
                     if ($dag2[$ddnc] == "$new_date"){
-                        ?> <p class="greserveerd">
+                        ?> <p class="greserveerd bevestigd<?= $nummeracc;?>">
                          <?= $arragement2[$ddnc] ?>
                          <br>
                          </p> <?php
+                    }
+                    if ($nummeracc == "acc1"){
+                        $nietacc +1;
                     }
                     $ddn++;
                 } $ddn = 1; ?>
@@ -147,7 +153,7 @@ $countdag = count($dag2);
 ?> 
 <section class=reservering>
     <section class="gegevens-tabel">
-<p class="information-prijs-tabel"> <?php if($aantalres2 == 1){ ?> Er is <?=  $aantalres2 ?> een reservering waarvan <?php }else{?> Er zijn  <?=  $aantalres2 ?> reserveringen <?php } ?> waarvan  <?=  $notacc ?> openstaand  </p>
+<p class="information-prijs-tabel"> <?php if($aantalres2 == 1){ ?> Er is <?=  $aantalres2 ?> een reservering waarvan <?php }else{?> Er zijn  <?=  $aantalres2 ?> reserveringen <?php } ?>   </p>
     </section>
 </section>
 

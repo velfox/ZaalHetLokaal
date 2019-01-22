@@ -26,7 +26,7 @@
                     <p class="information-title"> overzicht </p>
                 </section>
                 <section class="information-box">
-                    <?php include_once('./attributes/templates/ophalenenkel.php'); ?>
+                    <?php include_once('./attributes/templates/reserveringophalen.php'); ?>
                 </section>
                 <!-- end informatie container -->
             </section>

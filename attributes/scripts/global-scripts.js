@@ -93,9 +93,11 @@ $(function() {
     dateElement.on("change", function(e) {
         console.log( "test" );
         console.log("dateElement");
+        $("#melding").empty();
         // datum ophalen (value)
         let selectedDate = e.target.value;
         console.log(selectedDate);
+        
         // ajax call
         $.get("/datumchek.php?date=" + selectedDate, function(data){
             $.each(data, function(index, val, test) {

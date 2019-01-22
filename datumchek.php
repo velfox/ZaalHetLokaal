@@ -3,23 +3,22 @@
 require_once "attributes/templates/dbcon.php";
 
 $date = mysqli_escape_string($db, $_GET['date']);
-$query = "SELECT * FROM reservering ";
+$query = "SELECT * FROM reservering WHERE dag='$date' AND accepted=1 ";
+
+$melding[] = "De gekozen datum $date is beschikbaar";
 
 $result = $db->query($query);
 
 if ($result) {
     while($row = mysqli_fetch_assoc($result)) {
         $dagnummer = $row["dag"];
-        if($dagnummer == $date){
-            $melding[] = "de gekozen datum is helaas niet beschikbaar";
-        } else { 
-            $melding[] = "de gekozen datum is beschikbaar";
-        }
+        $melding[] = "De gekozen datum $date is helaas niet beschikbaar";
     }
-} else {
-    $melding[] = "de gekozen datum is beschikbaar";
 }
 
+if( strtotime($date) < strtotime(date("Y-m-d")) ) {
+    $melding[] = "De opgegeven datum $date licht in het verleden.";
+}
 
 header("Content-type: application/json");
 echo json_encode($melding);

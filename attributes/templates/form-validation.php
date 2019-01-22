@@ -28,4 +28,6 @@ if ( $pakket == 0){
 if ( $pakket == 0){
     $errors[] = 'Kies minstens een arragement.';
 }
-
+if( strtotime($datum) < strtotime(date("Y-m-d")) ) {
+    $errors[] = 'De opgegeven datum licht in het verleden.';
+}

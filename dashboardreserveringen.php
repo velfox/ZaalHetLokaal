@@ -18,20 +18,16 @@ if(!isset($_SESSION['user'])){
 <section class="admin-menu">
     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">
     <input class="main-button" type="submit" name="loguit" value="uitloggen"/>
-    <a href="dashboardreserveringen.php" class="main-button"> allen reserveringen</a>
+    <a href="dashboard.php" class="main-button"> dashboard </a>
     </form>
 </section>
 
 <section class="dashboard-container">
     <section class="laaste-reservering">
-        <?php include_once('./attributes/templates/adminophalen.php'); ?>
+        <?php include_once('./attributes/templates/adminophalenall.php'); ?>
     </section>
-    <section class="agenda">
-        <?php include_once('./attributes/templates/maand.php'); ?>
-    </section>
-<section> 
+<section>
+
 
 <?php } ?>
-
-<?php include_once('./attributes/templates/footer.php'); ?>
 

@@ -1,10 +1,16 @@
 <?php include_once('./attributes/templates/head.php'); ?> 
-<?php include_once('./attributes/templates/header-small.php'); ?> 
 
 <?php
 require_once "./attributes/templates/dbcon.php";
+?>
 
+<section class=reservering>
+<section class="gegevens-tabel">
+    <p class="information-prijs-tabel"> Allen reserveringen </p>
+</section>
+</section>
 
+<?php 
 if (isset($_POST['accepteren'])) {
     $updateid = $_POST['tracefield'];
     $sql = "UPDATE reservering SET accepted=1 WHERE id='$updateid'";
@@ -73,7 +79,7 @@ if (mysqli_query($db, $sql)) {
 
 $totaalprijs = 00.00;
 
-$sql = "SELECT * FROM resenper2 ORDER BY idres DESC LIMIT 1";
+$sql = "SELECT * FROM resenper2 ORDER BY idres DESC";
 $result = $db->query($sql);
 
 if ($result->num_rows > 0) {
