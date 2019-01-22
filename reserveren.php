@@ -79,7 +79,7 @@
                                     <p class="information-title"> Selecteer de datum <p>
                                 </section>
                                 <div class="datecontainer">
-                                 <input id="date" type="date" name="datum">
+                                 <input id="date" type="date" name="datum" required>
                                     <div id="melding"></div>
                                 </div>
                             </div>
@@ -87,9 +87,9 @@
                                 <section class="information-box-title">
                                     <p class="information-title"> Selecteer de dagdelen <p>
                                 </section>
-                                <input id="checkbox_1" type="checkbox" name="ochtend" value="ochtend"> ochtend <br>
-                                <input id="checkbox_1" type="checkbox" name="middag" value="middag"> middag <br>
-                                <input id="checkbox_1" type="checkbox" name="avond" value="avond"> avond <br>
+                                <p class="information-naam"> <input id="checkbox_1" type="checkbox" name="ochtend" value="ochtend"> ochtend </p>
+                                <p class="information-naam"> <input id="checkbox_1" type="checkbox" name="middag" value="middag"> middag </p>
+                                <p class="information-naam"> <input id="checkbox_1" type="checkbox" name="avond" value="avond"> avond </p>
                                 <span class="">
                                     <?= isset($errors['dagdeel']) ? $errors['dagdeel'] : '' ?></span>
                             </div>
@@ -98,7 +98,7 @@
                                     <p class="information-title"> hoeveel personen verwacht u? <p>
                                 </section>
                                 <label></label><br>
-                                <input type="number" name="personen" min="10" max="120" placeholder="Aantal personen"><br>
+                                <input type="number" name="personen" min="10" max="120" placeholder="Aantal personen" required><br>
                                 <span class="">
                                     <?= isset($errors['personen']) ? $errors['personen'] : '' ?></span>
                             </div>
@@ -113,9 +113,9 @@
                                 <section class="information-box-title">
                                     <p class="information-title"> Gewenst arragement <p>
                                 </section>
-                                <input type="radio" name="arragamentPakket" value="1" checked> clubbarbecue <br>
-                                <input type="radio" name="arragamentPakket" value="2"> party barbecue <br>
-                                <input type="radio" name="arragamentPakket" value="3"> club barbecue luxe <br>
+                                <p class="information-naam"> <input type="radio" name="arragamentPakket" value="1" checked> clubbarbecue </p>
+                                <p class="information-naam"> <input type="radio" name="arragamentPakket" value="2"> party barbecue </p>
+                                <p class="information-naam"> <input type="radio" name="arragamentPakket" value="3"> club barbecue luxe </p>
                                 <span class="">
                                     <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
                             </div>
@@ -172,24 +172,19 @@
                                 <section class="information-box-title">
                                     <p class="information-title"> Gewenst arragement <p>
                                 </section>
-                                <section class="prijs-tabel">
-                                <input type="radio" name="arragamentPakket" value="4" checked> <p class="information-naam"> Buffet </p>
-                                </section>
-                                <section class="prijs-tabel">
-                                <input type="radio" name="arragamentPakket" value="5"> <p class="information-naam"> Hollands stampppot buffet </p>
-                                </section>
-                                <input type="radio" name="arragamentPakket" value="6">Itliaans buffet <br>
-                                <input type="radio" name="arragamentPakket" value="7"> Feestavond arrangement <br>
-                                <span class="">
+
+                                <p class="information-naam"><input type="radio" name="arragamentPakket" value="4" checked> Buffet </p>
+                                <p class="information-naam"><input type="radio" name="arragamentPakket" value="5"> Hollands stampppot buffet </p>
+                                <p class="information-naam"><input type="radio" name="arragamentPakket" value="6">Itliaans buffet </p>
+                                <p class="information-naam"><input type="radio" name="arragamentPakket" value="7"> Feestavond arrangement </p>
                                     <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
                             </div>
                             <div class="data-field">
                                 <section class="information-box-title">
                                     <p class="information-title"> aanvullingen op arragement <p>
                                 </section>
-                                <input type="checkbox" name="arragamentPakketAanvulling[]" value="8"> Dessert buffet
-                                <br>
-                                <input type="checkbox" name="arragamentPakketAanvulling[]" value="9"> ijscokar <br>
+                                <p class="information-naam"><input type="checkbox" name="arragamentPakketAanvulling[]" value="8"> Dessert buffet </p>
+                                <p class="information-naam"><input type="checkbox" name="arragamentPakketAanvulling[]" value="9"> ijscokar <p>
                                 <?php include_once('./attributes/templates/form/aanvullingen-buffet.php'); ?>
 
                                 <span class="">
@@ -228,24 +223,24 @@
                             </section>
                             <div class="data-field">
                                 <!-- <label> Voornaam </label>     -->
-                                <input type="text" name="naam" value="Mickey" placeholder="Voornaam">
+                                <input type="text" name="naam"  placeholder="Uw voornaam" required>
                                 <span class="">
                                     <?= isset($errors['naam']) ? $errors['naam'] : '' ?></span>
                             </div>
                             <div class="data-field">
                                 <!-- <label> achternaam </label>     -->
-                                <input type="text" name="achternaam" value="Mouse" placeholder="achternaam">
+                                <input type="text" name="achternaam"  placeholder="Uw achternaam" required>
                                 <span class="">
                                     <?= isset($errors['achternaam']) ? $errors['achternaam'] : '' ?></span>
                             </div>
                             <div class="data-field">
-                                <input type="email" name="email" value="Mouse@disney.com" placeholder="e-mail">
+                                <input type="email" name="email"  placeholder="Uw e-mail" required>
                                 <span class="">
                                     <?= isset($errors['email']) ? $errors['email'] : '' ?></span>
                             </div>
                             <div class="data-field">
                                 <!-- <label> telefoonnummer </label>     -->
-                                <input type="text" name="tel" value="0348-402391" placeholder="telefoonnummer">
+                                <input type="text" name="tel"placeholder="Uw telefoonnummer" required>
                                 <span class="">
                                     <?= isset($errors['tel']) ? $errors['tel'] : '' ?></span>
                             </div>
@@ -254,17 +249,18 @@
                                 <p class="information-title"> afronden <p>
                             </section>
                             <div class="data-field">
-                            <input type="checkbox" name="arragamentPakketAanvulling[]" value="47"> Ik ga acoord met de algemene voorwaarden  <br>
-                                <input class="main-button" type="submit" name="submit" value="Reserveren" />
+                            <section class="voltiooien">
+                            <p class="information-naam"><input type="checkbox" name="voorwaarden accoord" value="acc" required> Ik ga akkoord met de algemene voorwaarden *  </p>
+                            <input class="main-button" type="submit" name="submit" value="Reserveren"/>
                             </div>
                         </section>
                         
                     </form>
                 </section>
-                <section class="information-reserveren menu-box">
+                <!-- <section class="information-reserveren menu-box">
                 <p class="information-title"> vragen? </p>
                 <div><button class="main-button margin-button"> contact </button></div>
-            </section>
+            </section> -->
             </section>
         </section>
         <?php } ?>

@@ -25,4 +25,7 @@ if ( $dagdeel < 1){
 if ( $pakket == 0){
     $errors[] = 'Kies minstens een arragement.';
 }
+if ( $pakket == 0){
+    $errors[] = 'Kies minstens een arragement.';
+}
 

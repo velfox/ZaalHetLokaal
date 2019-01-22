@@ -17,7 +17,7 @@
                             $idAanvulling = $row["id"];
                             ?>
                             <section class="prijs-tabel">
-                            <input type="checkbox" name="arragamentPakketAanvulling[]" value="<?= $idAanvulling ?>"> <p class="information-naam"> <?= $aanvulling ?> </p> <p class="information-prijs-tabel">  <?= $prijs ?>  </p>
+                            <p class="information-naam"> <input type="checkbox" name="arragamentPakketAanvulling[]" value="<?= $idAanvulling ?>"> <?= $aanvulling ?> </p> 
                             </section>
                             <?php
 
@@ -44,7 +44,7 @@
 
                             ?>
                             <section class="prijs-tabel">
-                                <p class="information-naam"> <?= $aanvulling ?> </p> <p class="information-prijs-tabel">  <?= $prijs ?>  </p>
+                            <p class="information-naam"> <input type="checkbox" name="arragamentPakketAanvulling[]" value="<?= $idAanvulling ?>"> <?= $aanvulling ?> </p>  
                             </section>
                             <?php
 
@@ -71,7 +71,7 @@
 
                             ?>
                             <section class="prijs-tabel">
-                                <p class="information-naam"> <?= $aanvulling ?> </p> <p class="information-prijs-tabel">  <?= $prijs ?>  </p>
+                            <p class="information-naam"> <input type="checkbox" name="arragamentPakketAanvulling[]" value="<?= $idAanvulling ?>"> <?= $aanvulling ?> </p> 
                             </section>
                             <?php
 
