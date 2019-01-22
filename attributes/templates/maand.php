@@ -2,13 +2,33 @@
 <?php include_once('./attributes/templates/header-small.php'); ?>
 
 <?php
+require_once "./attributes/templates/dbcon.php";
+
 $testd = date("Y-m-d");
+if (isset($_POST['newdate'])) {
+    //volgende maand functie
+    mysqli_escape_string($db, $_POST['olddate']);
+    $newdatemonth = $_POST['olddate'];
+    $testd = date("$newdatemonth");
+    $testd = date('Y-m-d', strtotime($testd . ' +1 month'));
+    echo $testd; 
+}
+
+if (isset($_POST['newdateback'])) {
+    //vorige maand functie
+    mysqli_escape_string($db, $_POST['olddate']);
+    $newdatemonth = $_POST['olddate'];
+    $testd = date("$newdatemonth");
+    $testd = date('Y-m-d', strtotime($testd . ' -1 month'));
+    echo $testd; 
+}
+
 $vandaag = date("Y-m-d", strtotime($testd));
 $vandaagm = date("m", strtotime($vandaag));
 $vandaagy = date("Y", strtotime($vandaag));;
 
-$dagen =cal_days_in_month(CAL_GREGORIAN,$vandaagm,$vandaagy);
 
+$dagen =cal_days_in_month(CAL_GREGORIAN,$vandaagm,$vandaagy);
 
 // First day of the month.
 $eerstedag = date('Y-m-01', strtotime($vandaag));
@@ -48,7 +68,6 @@ if ($eerstedagNummer == 6 &&  $dn == 0) {
     $exstadagen = 5; $dn = 1;
 }
 
-require_once "./attributes/templates/dbcon.php";
 
 $sql = "SELECT * FROM resenper2 ORDER BY idres DESC";
 $result = $db->query($sql);
@@ -75,7 +94,19 @@ $countdag = count($dag2);
 
 <section class="kalender">
     <section class="kalender-title title">
-        <p> _ <?= date("l jS \of F Y ", strtotime($vandaag)); ?> _ <?= date("Y-m-d", strtotime($vandaag)); ?> _ </p>
+        <!-- next knop -->
+
+    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
+        <input class="main-button" type="submit" name="newdateback" value="<" />
+        <input type="hidden" id="tracefield" name="olddate" value="<?= $testd; ?>">
+    </form>  
+    <p> _ <?= date("l jS \of F Y ", strtotime($vandaag)); ?> _ <?= date("Y-m-d", strtotime($vandaag)); ?> _ </p>
+
+    <!-- back knop -->
+    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
+        <input class="main-button" type="submit" name="newdate" value=">" />
+        <input type="hidden" id="tracefield" name="olddate" value="<?= $testd; ?>">
+    </form> 
     </section>
         <section class="week">
             <section class="weeknaam">

@@ -6,7 +6,7 @@ require_once "./attributes/templates/dbcon.php";
 
 <section class=reservering>
 <section class="gegevens-tabel">
-    <p class="information-prijs-tabel"> Allen reserveringen </p>
+    <p class="information-prijs-tabel"> Alle reserveringen </p>
 </section>
 </section>
 
@@ -42,7 +42,7 @@ if (mysqli_query($db, $sql)) {
     ?>
      <section class=reservering>
         <section class="gegevens-tabel">
-            <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is verweidert </p>
+            <p class="information-prijs-tabel"> Reservering met nummer <?= $delid ?> is verwijdert </p>
         </section>
     </section>
     <?php
@@ -61,7 +61,7 @@ if (mysqli_query($db, $sql)) {
         ?>
          <section class=reservering>
             <section class="gegevens-tabel">
-                <p class="information-prijs-tabel"> aanvullingen met nummer <?= $delid ?> is verweidert </p>
+                <p class="information-prijs-tabel"> aanvullingen met nummer <?= $delid ?> is verwijdert </p>
             </section>
         </section>
         <?php
@@ -138,7 +138,7 @@ if ($result->num_rows > 0) {
                     <p class="arragement title"> acties voor reservering </p>
                     <button class="main-button"> Aanpassen </button>
                     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
-                        <input class="main-button del" type="submit" name="delete" value="Verweideren" />
+                        <input class="main-button del" type="submit" name="delete" value="verwijderen" />
                         <input type="hidden" id="tracefield" name="tracefielddel" value="<?= $idres; ?>">
                     </form>
                     </section class="arragement">
@@ -153,6 +153,8 @@ if ($result->num_rows > 0) {
                                 while($aanvulling = $resulta->fetch_assoc()) {
                                     $aanvullingid = $aanvulling['aanvulling_id'];
                                 $sql2 = "SELECT * FROM aanvulling WHERE id='$aanvullingid'";
+                                $totaalprijs = 0;
+                                $prijs = 0;
                                 $resultb = $db->query($sql2);
                                 if ($resultb->num_rows > 0) {
                                     while($aanvulling2 = $resultb->fetch_assoc()) {

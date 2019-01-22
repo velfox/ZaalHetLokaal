@@ -7,7 +7,7 @@
                 <section class="footerblok">
                     <p class="title"> Zaal het Lokaal </p>
                     <p> Heicop 24C </p>
-                    <p> 3628 AJ KockengenC </p>
+                    <p> 3628 AJ Kockengen </p>
                     <p> 0346241720 </p>
                 </section>
                 <section class="footerblok">

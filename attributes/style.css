@@ -803,6 +803,9 @@ input[type=text] {
     margin-top: 10px;
     padding: 10px;
     text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .dag{

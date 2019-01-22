@@ -55,12 +55,6 @@ if ($result->num_rows > 0) {
                     <p class="information-naam"> Telefoon </p> <p class="information-prijs-tabel"> <?= $tel ?> </p>
                 </section>
 
-                    <p class="arragement title"> acties voor reservering </p>
-                    <button class="main-button"> Aanpassen </button>
-                    <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
-                        <input class="main-button del" type="submit" name="delete" value="Verweideren" />
-                        <input type="hidden" id="tracefield" name="tracefielddel" value="<?= $idres; ?>">
-                    </form>
                     </section class="arragement">
                         <section class="aavullingen">
                         <p class="arragement title"> <?= $arragement ?> </p>
@@ -73,6 +67,8 @@ if ($result->num_rows > 0) {
                                 while($aanvulling = $resulta->fetch_assoc()) {
                                     $aanvullingid = $aanvulling['aanvulling_id'];
                                 $sql2 = "SELECT * FROM aanvulling WHERE id='$aanvullingid'";
+                                $totaalprijs = 0;
+                                $prijs = 0;
                                 $resultb = $db->query($sql2);
                                 if ($resultb->num_rows > 0) {
                                     while($aanvulling2 = $resultb->fetch_assoc()) {
