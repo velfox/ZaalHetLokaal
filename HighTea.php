@@ -30,7 +30,7 @@
         <section class="information-reserveren menu-box">
             <p class="information-title"> Wij gaan het voor u regelen! </p>
             <div><a href="reserveren.php?option=HighTea"><button class="main-button margin-button"> reserveren </button></a></div>
-            <div><button class="main-button margin-button"> contact </button></div>
+            <div><a href="contact.php"><button class="main-button margin-button"> contact </button></a></div>
         </section>
         <?php include_once('./attributes/templates/algemene-blokken/menubox.php'); ?> 
         </section>

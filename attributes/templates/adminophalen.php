@@ -130,7 +130,7 @@ if ($result->num_rows > 0) {
                 </section>
 
                     <p class="arragement title"> acties voor reservering </p>
-                    <button class="main-button"> Aanpassen </button>
+                    <!-- <button class="main-button"> Aanpassen </button> -->
                     <form action="<?= $_SERVER['REQUEST_URI']; ?>" method="post" enctype="multipart/form-data">  
                         <input class="main-button del" type="submit" name="delete" value="verwijderen" />
                         <input type="hidden" id="tracefield" name="tracefielddel" value="<?= $idres; ?>">
