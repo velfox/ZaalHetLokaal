@@ -153,17 +153,16 @@ if ($result->num_rows > 0) {
                                 while($aanvulling = $resulta->fetch_assoc()) {
                                     $aanvullingid = $aanvulling['aanvulling_id'];
                                 $sql2 = "SELECT * FROM aanvulling WHERE id='$aanvullingid'";
-                                $totaalprijs = 0;
-                                $prijs = 0;
+                
                                 $resultb = $db->query($sql2);
                                 if ($resultb->num_rows > 0) {
                                     while($aanvulling2 = $resultb->fetch_assoc()) {
                                         $aanvulling = $aanvulling2['aanvulling'];
                                         $prijs =  $aanvulling2['prijs'];
-                                        $totaalprijs = $totaalprijs + $prijs;
+                                        $totaalprijs = $prijs + $totaalprijs;
                                         ?>
                                         <section class="prijs-tabel">
-                                            <p class="information-naam"> <?= $aanvulling ?>   </p> <p class="information-prijs-tabel"> <?= $prijs ?> € </p>
+                                            <p class="information-naam"> <?= $aanvulling ?>   </p> <p class="information-prijs-tabel"> <?= number_format($prijs, 2, ',', ' '); ?> € </p>
                                         </section>
                                         <?php
                                     }
@@ -173,15 +172,16 @@ if ($result->num_rows > 0) {
                         ?>
                          <p class="arragement title"> <?= $arragement ?> totaal </p>
                               <section class="prijs-tabel">
-                                    <p class="information-naam"> Totaal per persoon </p> <p class="information-prijs-tabel"> <?= $totaalprijs ?> € </p>
+                                    <p class="information-naam"> Totaal per persoon </p> <p class="information-prijs-tabel"> <?= number_format($totaalprijs, 2, ',', ' '); ?> € </p>
                                 </section>
                                 <section class="prijs-tabel">
-                                    <p class="information-naam"> Totaal x <?= $aantalpersoonen ?> personen </p> <p class="information-prijs-tabel"> <?= $totaalprijscal ?> € </p>
+                                    <p class="information-naam"> Totaal x <?= $aantalpersoonen ?> personen </p> <p class="information-prijs-tabel"> <?= number_format($totaalprijscal, 2, ',', ' '); ?> € </p>
                                 </section>
                                 <p class="arragement title"> <?= $arragement ?> gegevens </p>
                                 <section class="prijs-tabel">
                                     <p class="information-naam"> aantal personen  personen </p> <p class="information-prijs-tabel"> <?= $aantalpersoonen ?> </p>
                                 </section>
+                                <?php   $totaalprijs = 0; ?>
                         </section>
                     </section>
                 </section> 

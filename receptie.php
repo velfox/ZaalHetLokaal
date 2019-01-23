@@ -82,7 +82,7 @@
     <section class="information-menu">
         <section class="information-reserveren menu-box">
             <p class="information-title"> Wij gaan het voor u regelen! </p>
-            <div><button class="main-button margin-button"> reserveren </button></div>
+            <div><a href="reserveren.php?option=receptie"><button class="main-button margin-button"> reserveren </button></a></div>
             <div><button class="main-button margin-button"> contact </button></div>
         </section>
         <?php include_once('./attributes/templates/algemene-blokken/menubox.php'); ?> 

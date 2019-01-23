@@ -1,6 +1,17 @@
-
+<?php
+session_start();
+?>
 
 <?php
+if(!isset($_SESSION['user'])){
+    header("location: admin.php");
+} else {
+    if (isset($_POST['loguit'])) { 
+        unset($_SESSION["user"]);
+        session_destroy($_SESSION["user"]); 
+        header("location: admin.php");
+        session_destroy($_SESSION['time_start_login']);
+    }
 
 if (isset($_POST['submit'])) {
     require_once "./attributes/templates/dbcon.php";
@@ -22,7 +33,6 @@ if (isset($_POST['submit'])) {
 
     }
 }  else {
-    echo 'geensubmit';
     $errors[] = 'geensubmit.';
 }
 
@@ -31,7 +41,7 @@ if (isset($_POST['submit'])) {
 echo 'hoi.';
 
 if(isset($result)){
-    echo 'done.';
+    echo 'Gebruiker toegevoegd.';
 } else {
 ?>
  <?php if (isset($errors) && !empty($errors)) { ?>
@@ -55,4 +65,4 @@ if(isset($result)){
   </form>
  </section>
 
- <?php } ?>
+ <?php }  }?>

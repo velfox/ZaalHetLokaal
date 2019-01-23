@@ -194,26 +194,44 @@
                         <?php } ?>
 
                                             <!-- aanvullingen vergadering -->
-                                            <?php if( $option == "vergadering"){ ?>
+                        <?php if( $option == "vergadering"){ ?>
                         <section id="form-part-2">
                             <div class="data-field">
                                 <section class="information-box-title">
                                     <p class="information-title"> Gewenst arragement <p>
                                 </section>
-                                <input type="radio" name="arragamentPakket" value="53" checked> zaalhuur <br>
-                                <span class="">
+
+                                <p class="information-naam"><input type="radio" name="arragamentPakket" value="53" checked> zaalhuur </p>
                                     <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
                             </div>
                             <div class="data-field">
-                                <section class="information-box-title">
-                                    <p class="information-title"> aanvullingen op arragement <p>
-                                </section>
-                                <input type="checkbox" name="arragamentPakketAanvulling[]" value="47"> koffie, thee <br>
-                                <input type="checkbox" name="arragamentPakketAanvulling[]" value="48"> frisdrank <br>
-                                <input type="checkbox" name="arragamentPakketAanvulling[]" value="49"> vergader arrangement, onbeperkt koffie, thee, water, cake <br>
+                                <?php include_once('./attributes/templates/form/aanvullingen-vergadering.php'); ?>
+                                <span class="">
+                                    <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
                             </div>
                         </section>
                         <?php } ?>
+
+                        <!-- aanvullingen receptie -->
+                        <?php if( $option == "receptie"){ ?>
+                            <section id="form-part-2">
+                                <div class="data-field">
+                                    <section class="information-box-title">
+                                        <p class="information-title"> Gewenst arragement <p>
+                                    </section>
+
+                                    <p class="information-naam"><input type="radio" name="arragamentPakket" value="53" checked> zaalhuur </p>
+                                        <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
+                                </div>
+                                <div class="data-field">
+                                    <?php include_once('./attributes/templates/form/aanvullingen-receptie.php'); ?>
+                                    <span class="">
+                                        <?= isset($errors['arragement']) ? $errors['arragement'] : '' ?></span>
+                                </div>
+                            </section>
+                        <?php } ?>
+
+
 
 
                         <section id="form-part-3">

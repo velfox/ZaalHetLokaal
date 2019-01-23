@@ -17,7 +17,7 @@ if ($result) {
 }
 
 if( strtotime($date) < strtotime(date("Y-m-d")) ) {
-    $melding[] = "De opgegeven datum $date licht in het verleden.";
+    $melding[] = "De opgegeven datum $date ligt in het verleden.";
 }
 
 header("Content-type: application/json");
