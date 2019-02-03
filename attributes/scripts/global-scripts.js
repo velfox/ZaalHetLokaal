@@ -73,7 +73,6 @@ $('document').ready(function(){
         
         var setActive = document.getElementById(boxnummer);
         $(setActive).addClass( "activebox" );
-        $(setActive).addClass( "activebox" );
         var setActive = document.getElementById(idnummer);
         $(setActive).addClass( "active-button" );
 

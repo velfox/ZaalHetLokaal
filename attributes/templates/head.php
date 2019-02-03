@@ -9,5 +9,6 @@
     <link rel="stylesheet" href="/attributes/style.css">
     <title>Zaal Het Lokaal</title>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <link rel="shortcut icon" href="/attributes/img/home-favicon.ico">
 </head>
 <body>
