@@ -975,6 +975,19 @@ input[type="radio"]  {
     padding-top: 10px;
 }
 
+textarea{
+    width:99%!important;
+    height: 200px!important;
+    background-color: #588C73!important;
+    color: #588C73!important;
+    margin:2px 0px!important;
+    color: #fff!important;
+}
+
+.p2{
+padding-top: 20px;
+}
+
 /* fotos */
 
 .background{
@@ -1013,4 +1026,11 @@ input[type="radio"]  {
     max-width: 250px!important;
     text-align: center;
     color: #fff;
+}
+
+#subject{
+    width: 100%!important;
+    padding: 12px 20px;
+    margin-bottom: 10px!important;
+    height: 200px;
 }

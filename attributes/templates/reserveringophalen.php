@@ -33,7 +33,6 @@ if ($result->num_rows > 0) {
         $idresSQL = intval($idres);
         ?>
         
-
         <section class=reservering>
             <section class="reservering-title title">
                 <p class="datum">   <?= $dag ?> </p>

@@ -90,7 +90,6 @@ $(function() {
 
     // on change
     dateElement.on("change", function(e) {
-        console.log( "test" );
         console.log("dateElement");
         $("#melding").empty();
         // datum ophalen (value)
@@ -108,3 +107,9 @@ $(function() {
     })
 });
 
+//google recapcha
+grecaptcha.ready(function() {
+    grecaptcha.execute('6LcwLKsUAAAAANZ1p7fRoV1cvFe55dPwr9ccgRmf', {action: 'homepage'}).then(function(token) {
+    document.getElementById("g-recaptcha-response").value= token;
+    });
+});
