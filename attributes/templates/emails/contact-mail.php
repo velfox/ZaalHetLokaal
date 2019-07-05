@@ -1,36 +1,38 @@
 <?php
-$to = "timedevos@gmail.com";
-$subject = "Nieuwe Reservering Zaal het Lokaal";
+// Import PHPMailer classes into the global namespace
+// These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-$name = "tim";
+// Load Composer's autoloader
+require '../vendor/autoload.php';
 
-$message = "
-<div class='email-background' style='background-color:#998675;padding-top:15px;padding-bottom:15px;padding-right:0px;padding-left:0px;' >
-        <div class='email-container' style='max-width:800px;background-color:#C7B299;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;' >
-            <div class='logo' style='display:-webkit-box;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;width:fit-content;padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;' ><div class='l1' style='font-size:2em;padding-top:15px;padding-right:10px;' > ZAAL </div> <div class='l2' style='font-size:3em;transition:all 1s;-webkit-transition:all 1s;' > | HET LOKAAL </div> </div>
-        </div>
-        <div class='email-container img' style='max-width:800px;background-color:#C7B299;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;height:200px;background-image:url(https://files.velfox.nl/zaalhetlokaal/email-header.png);' > </div>
-        <div class='email-container' style='max-width:800px;background-color:#C7B299;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;' >
-                <div class='title-bar' style='max-width:1105px;display:flex;flex-direction:column;justify-content:space-evenly;background-color:#716358;color:#fff;padding-top:10px;padding-bottom:10px;padding-right:10px;padding-left:10px;text-align:center;' > Bericht ontvangen. </div>
-        </div>
-        <div class='email-container' style='max-width:800px;background-color:#C7B299;margin-top:0;margin-bottom:0;margin-right:auto;margin-left:auto;' >
-                <div class='text' style='background-color:#FAFAFA;padding-top:20px;padding-bottom:20px;padding-right:20px;padding-left:20px;color:#212121;' > Beste heer mevrouw, <br> <br> Uw bericht is ontvangen <br> Wij streven er naar om uw binnen 2 werkdagen een reactie te sturen.</div>
-        </div>
-        
-        <div class='footerblok' style='text-align:center;color:#716358;' >
-                <p class='title' style='font-size:20px;margin-bottom:2px;text-align:center;' > Zaal het Lokaal </p>
-                <p>Heicop 24C 3628 AJ Kockengen Vast: 0346241720 mobiel: 0655331819 rhadevos@casema.nl</p>
-        </div>
-    </div>
-";
+// Instantiation and passing `true` enables exceptions
+$mail = new PHPMailer(true);
 
-// Always set content-type when sending HTML email
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+try {
+    //Server settings
+    $mail->isSMTP();                                            // Set mailer to use SMTP
+    $mail->Host       = 'mail.creativestorm.nl';                // Specify main and backup SMTP servers
+    $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+    $mail->Username   = 'tim@creativestorm.nl';                 // SMTP username
+    $mail->Password   = 'sch00ltas123';                         // SMTP password
+    $mail->SMTPSecure = 'ssl';                                  // Enable TLS encryption, ssl also accepted
+    $mail->Port       = 465;                                    // TCP port to connect to
 
-// More headers
-$headers .= 'From: <tim@velfox.nl>' . "\r\n";
-$headers .= 'Cc: tim@velfox.nl' . "\r\n";
+    //Recipients
+    $mail->setFrom('from@example.com', 'Mailer');
+    $mail->addAddress('timedevos@gmail.com', 'Joe User');     // Add a recipient
+    $mail->addAddress('timedevos@gmail.com');               // Name is optional
 
-mail($to,$subject,$message,$headers);
-?>
+    // Content
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'Here is the subject';
+    $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
+    $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+    $mail->send();
+    echo 'Message has been sent';
+} catch (Exception $e) {
+    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+}

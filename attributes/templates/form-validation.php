@@ -2,7 +2,7 @@
 //Check if data is valid & generate error if not so
 $errors = [];
 if ($datum == "") {
-    $errors[] = 'Datum mag niet leeg zijn.'; //Alternative for errors behind input and not in summary
+    $errors[] = 'Datum mag niet leeg zijn.';
 }
 if ($personen == "") {
     $errors[] = 'Het aantal personen mag niet leeg zijn.';

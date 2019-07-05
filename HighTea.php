@@ -6,7 +6,7 @@
     <section class="information-conainer">
 
         <section class="information-content">
-            <!-- start informatie conteiner -->
+            <!-- start informatie container -->
             <section id="box1" class="activebox informatie-blok-container">
             <section class="information-box-title">
                 <p class="information-title" > High Tea </p>

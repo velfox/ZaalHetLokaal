@@ -38,7 +38,6 @@ if ($return['success'] == true) {
     $errors[] = 'Recaptcha Fout. Probeer het later opnieuw.';
     if ($return['error-codes'][0] == "timeout-or-duplicate"){
         $errors[] = 'Het formulier is al verzonden.';
-
     }
 }
 ?>

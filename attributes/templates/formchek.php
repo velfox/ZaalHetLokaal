@@ -17,9 +17,6 @@ if (isset($_GET['option'])){
 }
 //Check if Post isset, else do nothing
 if (isset($_POST['submit'])) {
-    //Require database in this file
-    //Postback with the data showed to the user, first retrieve data from 'Super global'
-    // basic gegevens
     $dagdeel = 0;
     $ochtend = 0;
     $middag = 0;
@@ -114,8 +111,6 @@ if (isset($_POST['submit'])) {
         } else {
             $errors[] = 'Something went wrong in your database query: ' . mysqli_error($db);
         }
-
-        //Close connection
         
     }
 }

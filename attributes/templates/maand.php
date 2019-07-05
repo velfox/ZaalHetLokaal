@@ -21,7 +21,7 @@ if (isset($_POST['newdateback'])) {
     $testd = date('Y-m-d', strtotime($testd . ' -1 month'));
 }
 
-$vandaag = date("Y-m-d", strtotime($testd));
+$vandaag =  date("Y-m-d", strtotime($testd));
 $vandaagm = date("m", strtotime($vandaag));
 $vandaagy = date("Y", strtotime($vandaag));;
 

@@ -10,7 +10,7 @@
                 <?php if (isset($errors) && !empty($errors)) { ?>
                     <section id="box1" class="activebox informatie-blok-container">
                         <section class="information-box-title">
-                            <p class="information-title"> Oeps.. U bent de volgende dingen vergeten in te vullen. </p>
+                            <p class="information-title"> Oeps.. Er is iets niet goed gegaan. </p>
                         </section>
                         <section class="information-box">
                             <?php for ($i = 0; $i < count($errors); $i++) { ?>
