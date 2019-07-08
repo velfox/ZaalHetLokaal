@@ -1,3 +1,4 @@
+<script src="https://www.google.com/recaptcha/api.js?render=6LcwLKsUAAAAANZ1p7fRoV1cvFe55dPwr9ccgRmf"></script>
 <?php include_once('./attributes/templates/head.php'); ?>
 <?php include_once('./attributes/templates/header-small.php'); ?>
 <?php include_once('./attributes/templates/formchek.php'); ?>
@@ -263,6 +264,7 @@
                                     <?= isset($errors['tel']) ? $errors['tel'] : '' ?></span>
                             </div>
                             <input type="hidden" id="tracefield" name="tracefield" value="<?= $option; ?>">
+                            <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                             <section class="information-box-title">
                                 <p class="information-title"> afronden <p>
                             </section>
