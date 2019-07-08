@@ -11,14 +11,14 @@
                     <p> 0346241720 </p>
                 </section>
                 <section class="footerblok">
-                    <p> home </p>
-                    <p> mogelijkheden </p>
-                    <p> foto's </p>
-                    <p> contact </p>
+                    <!-- <p> Home </p>
+                    <p> Mogelijkheden </p>
+                    <p> Foto's </p>
+                    <p> Contact </p> -->
                 </section>
                 <section class="footerblok">
                     <p class="title"> kleine lettertjes </p>
-                    <p> copyright zaal het lokaal 2015 - 2019 </p>
+                    <p> copyright Zaal het Lokaal 2015 - 2019 </p>
                     <p> algemene voorwaarden </p>
                     <p> cookie verklaring </p>
                 </section>

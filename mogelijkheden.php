@@ -7,7 +7,7 @@ include_once ('./attributes/templates/header-small.php');
 ?> 
 <section class="mogelijkheden">
     <section class="mogelijkheden-tilte">
-        <h2> mogelijkheden </h2>
+        <h2> Mogelijkheden </h2>
     </section>
 </section>
 <section class="mogelijkheden">
