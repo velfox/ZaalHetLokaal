@@ -94,7 +94,7 @@ if (isset($_POST['submit'])) {
             }
 
             //sendemails
-            include_once('./attributes/templates/emails/mail.php');
+            include_once('./email-reservering.php');
 
         if ($result) {
             //Set success message & empty all variables for new form

@@ -27,7 +27,7 @@ if ($return['success'] == true) {
 
     if (empty($errors)) {
         //sendemails
-        include_once('./attributes/templates/emails/contact-mail.php');
+        include_once('./email-contact.php');
         //reset variables
         $naam = '';
         $achternaam = '';
